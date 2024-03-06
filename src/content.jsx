@@ -4,12 +4,13 @@ import "./index.css";
 import App from "./App";
 
 
-import mainWorld from './world?script&module'
+import mainWorld from './world?script&module';
 
-const script = document.createElement('script')
-script.src = chrome.runtime.getURL(mainWorld)
-script.type = 'module'
-document.head.prepend(script)
+const script = document.createElement('script');
+// eslint-disable-next-line no-undef
+script.src = chrome.runtime.getURL(mainWorld);
+script.type = 'module';
+document.head.prepend(script);
 
 
 const root = document.createElement("div");

@@ -1,4 +1,9 @@
-console.log("hello from world in ext test 4");
+import { helper } from './helper';
 
-import {helper} from './helper';
-console.log(helper());
+const hello = () => {
+    console.log("hello from world in ext test 4");
+    console.log(helper());
+};
+hello();
+
+export default hello;
