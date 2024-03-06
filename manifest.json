@@ -1,23 +1,19 @@
 {
-  "manifest_version": 3,
-  "name": "v3-job-search-extension",
-  "version": "0.0.1",
-  "action": { "default_popup": "index.html" },
-  "content_scripts": [
-    {
-        "js": [
-          "src/content.jsx"
-        ],
-        "matches": [
-          "*://*.google.com/*"
-        ],
-        "runAt": "document_start"
-      }
+    "manifest_version": 3,
+    "name": "v3-job-search-extension",
+    "version": "0.0.1",
+    "action": { "default_popup": "index.html" },
+    "content_scripts": [
+        {
+            "js": ["src/content.jsx"],
+            "matches": ["*://*.google.com/*"],
+            "runAt": "document_start"
+        }
     ],
-  "web_accessible_resources": [
-    {
-      "matches": ["*://*.google.com/*"],
-      "resources": ["src/world.ts"]
-    }
-  ]
+    "web_accessible_resources": [
+        {
+            "matches": ["*://*.google.com/*"],
+            "resources": ["src/world.ts"]
+        }
+    ]
 }

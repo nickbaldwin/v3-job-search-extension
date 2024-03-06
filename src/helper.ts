@@ -1,1 +1,1 @@
-export const helper = () => "i helped";
+export const helper = () => 'i helped';
