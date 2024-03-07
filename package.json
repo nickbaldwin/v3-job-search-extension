@@ -12,12 +12,6 @@
         "format": "prettier . --write",
         "lint-staged": "lint-staged"
     },
-    "lint-staged": {
-        "**/*": [
-            "npm run lint",
-            "npm run format"
-        ]
-    },
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
