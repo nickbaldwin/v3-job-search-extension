@@ -1,0 +1,15 @@
+#content-root {
+    position: fixed;
+    top: 140px;
+    right: 20px;
+    width: 300px;
+    background-color: #ccc;
+    padding: 1rem;
+}
+
+
+.card {
+    padding: 2em;
+}
+
+

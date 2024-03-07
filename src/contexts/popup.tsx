@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import Popup from '../components/popup/Popup.tsx';
 
-const root = document.getElementById('root');
+const root: HTMLElement | null = document.getElementById('popup-root');
 if (root) {
     ReactDOM.createRoot(root).render(
         <React.StrictMode>
-            <App />
+            <Popup />
         </React.StrictMode>
     );
 }
