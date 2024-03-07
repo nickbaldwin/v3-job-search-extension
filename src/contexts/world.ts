@@ -1,10 +1,7 @@
 import { helper } from '../helpers/helper.ts';
 
-const hello = (): void => {
-    console.log('hello from world in v3 world');
-    console.log(helper());
-};
-hello();
+console.log('hello from world in v3 world');
+console.log(helper());
 
 const poller: number = setInterval((): void => {
     // @ts-expect-error this property is added by SVX
@@ -14,5 +11,3 @@ const poller: number = setInterval((): void => {
     }
     console.log('world - results: ', results);
 }, 1000);
-
-export default hello;
