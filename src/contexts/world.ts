@@ -1,6 +1,9 @@
 import { helper } from '../helpers/helper.ts';
+import { log } from '../utils/logger.ts';
 
-console.log('hello from world in v3 world');
+const moduleName = 'world script';
+log({ logType: 'info', moduleName, message: 'loaded' });
+
 console.log(helper());
 
 const poller: number = setInterval((): void => {
@@ -9,5 +12,15 @@ const poller: number = setInterval((): void => {
     if (results) {
         clearInterval(poller);
     }
-    console.log('world - results: ', results);
+
+    log({ logType: 'info', moduleName, message: 'results', payload: results });
+
+    window.postMessage(
+        {
+            type: 'results',
+            payload: results,
+            source: 'content',
+        },
+        '*'
+    );
 }, 1000);

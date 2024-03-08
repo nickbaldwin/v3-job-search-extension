@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from '../components/content/App.tsx';
+import { log } from '../utils/logger.ts';
+
+const moduleName = 'content script';
+log({ logType: 'info', moduleName, message: 'loaded' });
 
 // inject script (as a script tag) directly into the host web page
 // - within 'main' world context
