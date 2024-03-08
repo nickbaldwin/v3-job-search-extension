@@ -41,8 +41,6 @@ In addition, there are numerous assets and build/configuration files that are us
 
 This extension is developed in React and TypeScript, and uses Vite as the build tool. It also uses the CRXjs Vite plugin to simplify the development/build process for extensions (particularly HMR or Hot Module Replacement).
 
-
-
 ## Linting & Formatting
 
 ESLint, Prettier
@@ -69,13 +67,10 @@ export default {
 -   Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 -   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
-
-
 https://github.com/facebook/react
 https://github.com/microsoft/TypeScript
 https://github.com/vitejs/vite
 https://github.com/crxjs/chrome-extension-tools
-
 
 https://github.com/vitest-dev/vitest
 https://github.com/testing-library/react-testing-library
@@ -90,4 +85,3 @@ https://github.com/prettier/eslint-config-prettier
 https://github.com/lint-staged/lint-staged
 https://github.com/typicode/husky
 https://github.com/typescript-eslint/typescript-eslint
-
