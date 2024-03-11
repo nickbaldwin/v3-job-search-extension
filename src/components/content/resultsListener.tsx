@@ -8,6 +8,9 @@ import { log } from '../../utils/logger.ts';
 
 const moduleName = 'resultsListener';
 
+// this component is responsible for listening to messages from the world script
+// however zustand allows the store to be used outside of React, so we can use
+// update the store from the world script - using a listener function
 export const Listener = () => {
     const setResults = useStore((state) => state.setResults);
 
@@ -22,13 +25,20 @@ export const Listener = () => {
 
             if (event.data?.type === 'results') {
                 // @ts-expect-error need to tadd type
-                const n = event?.data?.payload?.totalSize || 0;
+                const n = event?.data?.payload?.jobResults?.length || 0;
                 setResults(n);
             } else {
                 //
             }
         };
         subscribeToWindowMessages(messageHandler);
+
+        return () => {
+            console.log(
+                'cleanup - removing event listener in listener component'
+            );
+            window.removeEventListener('message', messageHandler);
+        };
     }, [setResults]);
 
     return <></>;

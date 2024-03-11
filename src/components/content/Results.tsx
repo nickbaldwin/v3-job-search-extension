@@ -4,6 +4,7 @@ export const Results = () => {
     const results = useStore((state) => state.results);
     const bears = useStore((state) => state.bears);
     const inc = useStore((state) => state.increase);
+
     return (
         <>
             <p>There are {results} results</p>

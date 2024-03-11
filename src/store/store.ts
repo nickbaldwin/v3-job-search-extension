@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-
 interface State {
     results: number;
     bears: number;

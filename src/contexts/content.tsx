@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from '../components/content/App.tsx';
 import { log } from '../utils/logger.ts';
 
+import { ListenerFunction } from '../components/content/resultsListenerFunction.ts';
+ListenerFunction();
+
 const moduleName = 'content script';
 log({ logType: 'info', moduleName, message: 'loaded' });
 
