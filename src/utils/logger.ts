@@ -2,9 +2,10 @@ const appName = 'MJSE';
 export const isLog: boolean = true;
 
 export interface Log {
-    moduleName?: string;
-    message?: string;
     logType: string;
+    moduleName?: string;
+    fn?: string;
+    message?: string;
     payload?: object;
     error?: object | string;
 }
@@ -15,6 +16,7 @@ export const log = (log: Log): void => {
         console.group(appName + ': ' + log.logType);
         console.log(
             log.moduleName +
+                (log.fn ? ': ' + log.fn : '') +
                 ' @ ' +
                 t.toLocaleTimeString() +
                 t.getMilliseconds()
