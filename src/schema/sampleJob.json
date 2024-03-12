@@ -1,0 +1,290 @@
+{
+    "schemaVersion": "2.18.0",
+    "jobId": "57452e3c-5ec3-41eb-a667-b7a0dc109ff3",
+    "externalIdentifiers": [
+        {
+            "identifierName": "NOW_POSTING_ID",
+            "identifierValue": "f146abfd-1e8b-454b-a028-ad2b5b7b5d29"
+        }
+    ],
+    "provider": {
+        "code": "tmppx",
+        "name": "TMP PX"
+    },
+    "status": "ACTIVE",
+    "jobStatus": {
+        "status": "ACTIVE"
+    },
+    "ingestionMethod": "ADAPTED_NOW",
+    "createdDate": "2024-03-11T19:01:06.215Z",
+    "modifiedDate": "2024-03-11T19:30:18.988Z",
+    "apply": {
+        "applyType": "OFFSITE",
+        "applyUrl": "https://dsp.prng.co/9I02sAb"
+    },
+    "jobPosting": {
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "description": "Center 3 (19075), United States of America, McLean, Virginia<p style=\"text-align:inherit\"/><p style=\"text-align:inherit\">Senior Software Engineer, Full Stack (TypeScript, React, Node, AWS)</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p>Do you love building and pioneering in the technology space? Do you enjoy solving complex business problems in a fast-paced, collaborative, inclusive, and iterative delivery environment? At Capital One, you'll be part of a big group of makers, breakers, doers and disruptors, who solve real problems and meet real customer needs.  We are seeking Full Stack Software Engineers who are passionate about marrying data with emerging technologies. As a Capital One Software Engineer, you’ll have the opportunity to be on the forefront of driving a major transformation within Capital One. </p><p><br/> </p><p><b>What You’ll Do: </b></p><ul><li><p>Collaborate with and across Agile teams to design, develop, test, implement, and support technical solutions in full-stack development tools and technologies</p></li><li><p>Share your passion for staying on top of tech trends, experimenting with and learning new technologies, participating in internal & external technology communities, mentoring other members of the engineering community</p></li><li><p>Collaborate with digital product managers, and deliver robust cloud-based solutions that drive powerful experiences to help millions of Americans achieve financial empowerment</p></li><li><p>Utilize programming languages like JavaScript, Java, HTML/CSS, TypeScript, SQL, Python, and Go, Open Source RDBMS and NoSQL databases, Container Orchestration services including Docker and Kubernetes, and a variety of AWS tools and services </p></li></ul><p/><p><b>Basic Qualifications: </b></p><ul><li><p>Bachelor’s Degree</p></li><li><p>At least 4 years of experience in software engineering (Internship experience does not apply)</p></li></ul><p/><p><b>Preferred Qualifications:</b></p><ul><li><p>5+ years of experience in at least one of the following: JavaScript, Java, TypeScript, SQL, Python, or Go</p></li><li><p>1+ years of experience with AWS, GCP, Microsoft Azure, or another cloud service</p></li><li><p>3+ years of experience in open source frameworks</p></li><li><p>2+ years of experience in Agile practices</p></li></ul><p/><p/><p><i>At this time, Capital One will not sponsor a new applicant for employment authorization for this position.</i></p><p/><p style=\"text-align:inherit\"/><p style=\"text-align:left\">The minimum and maximum full-time annual salaries for this role are listed below, by location. Please note that this salary information is solely for candidates hired to perform work within one of these locations, and refers to the amount Capital One is willing to pay at the time of this posting. Salaries for part-time roles will be prorated based upon the agreed upon number of hours to be regularly worked.</p><p style=\"text-align:inherit\">New York City (Hybrid On-Site): $165,100 - $188,500 for Senior Software Engineer</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\">San Francisco, California (Hybrid On-Site): $174,900 - $199,700 for Senior Software Engineer</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:left\">Candidates hired to work in other locations will be subject to the pay range associated with that location, and the actual annualized salary amount offered to any candidate at the time of hire will be reflected solely in the candidate’s offer letter.</p><p style=\"text-align:inherit\">This role is also eligible to earn performance based incentive compensation, which may include cash bonus(es) and/or long term incentives (LTI). Incentives could be discretionary or non discretionary depending on the plan.</p><p/><div><div><div><div><p>Capital One offers a comprehensive, competitive, and inclusive set of health, financial and other benefits that support your total well-being. Learn more at the <a href=\"https://www.capitalonecareers.com/benefits\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">Capital One Careers website</a>. Eligibility varies based on full or part-time status, exempt or non-exempt status, and management level.</p><p/></div></div></div></div>This role is expected to accept applications for a minimum of 5 business days.<p/><p>No agencies please. Capital One is an equal opportunity employer committed to diversity and inclusion in the workplace. All qualified applicants will receive consideration for employment without regard to sex (including pregnancy, childbirth or related medical conditions), race, color, age, national origin, religion, disability, genetic information, marital status, sexual orientation, gender identity, gender reassignment, citizenship, immigration status, protected veteran status, or any other basis prohibited under applicable federal, state or local law. Capital One promotes a drug-free workplace. Capital One will consider for employment qualified applicants with a criminal history in a manner consistent with the requirements of applicable laws regarding criminal background inquiries, including, to the extent applicable, Article 23-A of the New York Correction Law; San Francisco, California Police Code Article 49, Sections 4901-4920; New York City’s Fair Chance Act; Philadelphia’s Fair Criminal Records Screening Act; and other applicable federal, state, and local laws and regulations regarding criminal background inquiries.</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:left\">If you have visited our website in search of information on employment opportunities or to apply for a position, and you require an accommodation, please contact Capital One Recruiting at 1-800-304-9102 or via email at <p>RecruitingAccommodation@capitalone.com</p>. All information you provide will be kept confidential and will be used only to the extent required to provide needed reasonable accommodations.</p><p style=\"text-align:inherit\"/><p style=\"text-align:left\">For technical support or questions about Capital One's recruiting process, please send an email to <p>Careers@capitalone.com</p></p><p style=\"text-align:inherit\"/><p style=\"text-align:left\">Capital One does not provide, endorse nor guarantee and is not liable for third-party products, services, educational tools or other information available through this site.</p><p style=\"text-align:inherit\"/><p style=\"text-align:left\">Capital One Financial is made up of several different entities. Please note that any position posted in Canada is for Capital One Canada, any position posted in the United Kingdom is for Capital One Europe and any position posted in the Philippines is for Capital One Philippines Service Corp. (COPSSC).</p>",
+        "url": "https://www.monster.com/job-openings/senior-software-engineer-full-stack-typescript-react-node-aws-cambridge-ma--57452e3c-5ec3-41eb-a667-b7a0dc109ff3?mstr_dist=true",
+        "datePosted": "2024-03-11T18:55:37.740Z",
+        "hiringOrganization": {
+            "@type": "Organization",
+            "name": "Capital One"
+        },
+        "identifier": {
+            "@type": "PropertyValue",
+            "name": "Capital One",
+            "value": "1382977635"
+        },
+        "jobLocation": [
+            {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Cambridge",
+                    "addressRegion": "MA",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "42.375",
+                    "longitude": "-71.106"
+                }
+            }
+        ],
+        "title": "Senior Software Engineer, Full Stack (TypeScript, React, Node, AWS)"
+    },
+    "attributeValuePairs": [
+        {
+            "name": "location_0_addressRegionName",
+            "value": "Massachusetts"
+        },
+        {
+            "name": "location_0_addressCountryName",
+            "value": "US"
+        }
+    ],
+    "normalizedJobPosting": {
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "description": "Center 3 (19075), United States of America, McLean, Virginia<p style=\"text-align:inherit\"/><p style=\"text-align:inherit\">Senior Software Engineer, Full Stack (TypeScript, React, Node, AWS)</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p>Do you love building and pioneering in the technology space? Do you enjoy solving complex business problems in a fast-paced, collaborative, inclusive, and iterative delivery environment? At Capital One, you'll be part of a big group of makers, breakers, doers and disruptors, who solve real problems and meet real customer needs.  We are seeking Full Stack Software Engineers who are passionate about marrying data with emerging technologies. As a Capital One Software Engineer, you’ll have the opportunity to be on the forefront of driving a major transformation within Capital One. </p><p><br/> </p><p><b>What You’ll Do: </b></p><ul><li><p>Collaborate with and across Agile teams to design, develop, test, implement, and support technical solutions in full-stack development tools and technologies</p></li><li><p>Share your passion for staying on top of tech trends, experimenting with and learning new technologies, participating in internal & external technology communities, mentoring other members of the engineering community</p></li><li><p>Collaborate with digital product managers, and deliver robust cloud-based solutions that drive powerful experiences to help millions of Americans achieve financial empowerment</p></li><li><p>Utilize programming languages like JavaScript, Java, HTML/CSS, TypeScript, SQL, Python, and Go, Open Source RDBMS and NoSQL databases, Container Orchestration services including Docker and Kubernetes, and a variety of AWS tools and services </p></li></ul><p/><p><b>Basic Qualifications: </b></p><ul><li><p>Bachelor’s Degree</p></li><li><p>At least 4 years of experience in software engineering (Internship experience does not apply)</p></li></ul><p/><p><b>Preferred Qualifications:</b></p><ul><li><p>5+ years of experience in at least one of the following: JavaScript, Java, TypeScript, SQL, Python, or Go</p></li><li><p>1+ years of experience with AWS, GCP, Microsoft Azure, or another cloud service</p></li><li><p>3+ years of experience in open source frameworks</p></li><li><p>2+ years of experience in Agile practices</p></li></ul><p/><p/><p><i>At this time, Capital One will not sponsor a new applicant for employment authorization for this position.</i></p><p/><p style=\"text-align:inherit\"/><p style=\"text-align:left\">The minimum and maximum full-time annual salaries for this role are listed below, by location. Please note that this salary information is solely for candidates hired to perform work within one of these locations, and refers to the amount Capital One is willing to pay at the time of this posting. Salaries for part-time roles will be prorated based upon the agreed upon number of hours to be regularly worked.</p><p style=\"text-align:inherit\">New York City (Hybrid On-Site): $165,100 - $188,500 for Senior Software Engineer</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\">San Francisco, California (Hybrid On-Site): $174,900 - $199,700 for Senior Software Engineer</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:left\">Candidates hired to work in other locations will be subject to the pay range associated with that location, and the actual annualized salary amount offered to any candidate at the time of hire will be reflected solely in the candidate’s offer letter.</p><p style=\"text-align:inherit\">This role is also eligible to earn performance based incentive compensation, which may include cash bonus(es) and/or long term incentives (LTI). Incentives could be discretionary or non discretionary depending on the plan.</p><p/><div><div><div><div><p>Capital One offers a comprehensive, competitive, and inclusive set of health, financial and other benefits that support your total well-being. Learn more at the <a href=\"https://www.capitalonecareers.com/benefits\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">Capital One Careers website</a>. Eligibility varies based on full or part-time status, exempt or non-exempt status, and management level.</p><p/></div></div></div></div>This role is expected to accept applications for a minimum of 5 business days.<p/><p>No agencies please. Capital One is an equal opportunity employer committed to diversity and inclusion in the workplace. All qualified applicants will receive consideration for employment without regard to sex (including pregnancy, childbirth or related medical conditions), race, color, age, national origin, religion, disability, genetic information, marital status, sexual orientation, gender identity, gender reassignment, citizenship, immigration status, protected veteran status, or any other basis prohibited under applicable federal, state or local law. Capital One promotes a drug-free workplace. Capital One will consider for employment qualified applicants with a criminal history in a manner consistent with the requirements of applicable laws regarding criminal background inquiries, including, to the extent applicable, Article 23-A of the New York Correction Law; San Francisco, California Police Code Article 49, Sections 4901-4920; New York City’s Fair Chance Act; Philadelphia’s Fair Criminal Records Screening Act; and other applicable federal, state, and local laws and regulations regarding criminal background inquiries.</p><p style=\"text-align:inherit\"/><p style=\"text-align:inherit\"/><p style=\"text-align:left\">If you have visited our website in search of information on employment opportunities or to apply for a position, and you require an accommodation, please contact Capital One Recruiting at 1-800-304-9102 or via email at <p>RecruitingAccommodation@capitalone.com</p>. All information you provide will be kept confidential and will be used only to the extent required to provide needed reasonable accommodations.</p><p style=\"text-align:inherit\"/><p style=\"text-align:left\">For technical support or questions about Capital One's recruiting process, please send an email to <p>Careers@capitalone.com</p></p><p style=\"text-align:inherit\"/><p style=\"text-align:left\">Capital One does not provide, endorse nor guarantee and is not liable for third-party products, services, educational tools or other information available through this site.</p><p style=\"text-align:inherit\"/><p style=\"text-align:left\">Capital One Financial is made up of several different entities. Please note that any position posted in Canada is for Capital One Canada, any position posted in the United Kingdom is for Capital One Europe and any position posted in the Philippines is for Capital One Philippines Service Corp. (COPSSC).</p>",
+        "url": "https://www.monster.com/job-openings/senior-software-engineer-full-stack-typescript-react-node-aws-cambridge-ma--57452e3c-5ec3-41eb-a667-b7a0dc109ff3",
+        "datePosted": "2024-03-11T18:55:37.740Z",
+        "employmentType": ["OTHER"],
+        "hiringOrganization": {
+            "@type": "Organization",
+            "name": "Capital One"
+        },
+        "identifier": {
+            "@type": "PropertyValue",
+            "name": "Capital One",
+            "value": "1382977635"
+        },
+        "jobLocation": [
+            {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Cambridge",
+                    "addressRegion": "MA",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "42.3751",
+                    "longitude": "-71.10561"
+                }
+            }
+        ],
+        "jobLocationType": "UNKNOWN",
+        "occupationalCategory": "15-1132.00: Software Developers, Applications",
+        "salaryCurrency": "USD",
+        "title": "Senior Software Engineer, Full Stack (TypeScript, React, Node, AWS)",
+        "validThrough": "2025-03-11T19:30:18.396Z"
+    },
+    "now": {
+        "jobAdPricingTypeId": 2,
+        "trackingUrl": "https://analytics.prng.co/i?e=se&aid=monster-firstclick&p=web&tv=no-js-0.1.0&tna=monster-firstclick-tracker&se_ca=click&se_ac=first-click&se_la=9I02sAb&se_va=0.62",
+        "activationDate": "2024-03-11T19:00:03.000Z",
+        "attributeValuePairs": [
+            {
+                "name": "nowCampaignId",
+                "value": "12313518"
+            },
+            {
+                "name": "nowCampaignFeedsEnabled",
+                "value": "true"
+            },
+            {
+                "name": "nowCampaigningMethod",
+                "value": "programmatic"
+            }
+        ]
+    },
+    "enrichments": {
+        "language": {
+            "languageCode": "en"
+        },
+        "mescos": [
+            {
+                "id": "1500127001001"
+            }
+        ],
+        "normalizedJobLocations": [
+            {
+                "postalAddress": {
+                    "@context": "https://schema.org",
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Cambridge",
+                        "addressRegion": "MA",
+                        "addressCountry": "US"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "42.3751",
+                        "longitude": "-71.10561"
+                    }
+                },
+                "locationId": "4931972",
+                "countryCode": "US"
+            }
+        ],
+        "normalizedJobLocationsV2": [
+            {
+                "postalAddress": {
+                    "@context": "https://schema.org",
+                    "@type": "Place",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Cambridge",
+                        "addressRegion": "MA",
+                        "addressCountry": "US"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "42.3751",
+                        "longitude": "-71.10561"
+                    }
+                },
+                "locationId": "18447580",
+                "countryCode": "US"
+            }
+        ],
+        "companyKb": {
+            "normalizedCompanyName": "Capital One Financial Corporation",
+            "normalizedCompanyGuid": "4twycc4dzvd73in4wyxma6gzkb"
+        },
+        "normalizedTitles": [
+            {
+                "title": "Software Engineer"
+            }
+        ],
+        "normalizedSalary": {
+            "currencyCode": {
+                "name": "USD",
+                "id": 920
+            },
+            "salaryBaseType": {
+                "name": "UNKNOWN",
+                "id": 239
+            }
+        },
+        "jobLocationType": {
+            "name": "UNKNOWN",
+            "id": 109
+        },
+        "employmentTypes": [
+            {
+                "name": "UNKNOWN",
+                "id": 29
+            }
+        ],
+        "status": {
+            "name": "ACTIVE",
+            "id": 52
+        },
+        "applyType": {
+            "name": "OFFSITE",
+            "id": 51
+        },
+        "ingestionMethod": {
+            "name": "ADAPTED_NOW",
+            "id": 704
+        },
+        "localizedMonsterUrls": [
+            {
+                "locationId": "4931972",
+                "url": "https://www.monster.com/job-openings/senior-software-engineer-full-stack-typescript-react-node-aws-cambridge-ma--57452e3c-5ec3-41eb-a667-b7a0dc109ff3"
+            }
+        ],
+        "qualifiedForG4J": true,
+        "isPublicJob": true,
+        "googleSyntheticValidThrough": "2025-03-11T19:30:18.396Z",
+        "processedDescriptions": {
+            "shortDescription": "Utilize programming languages like JavaScript, Java, HTML/CSS, TypeScript, SQL, Python, and Go, Open Source RDBMS and NoSQL databases, Container Orchestration services including Docker and Kubernetes, and a variety of AWS tools and services . Share your passion for staying on top of tech trends, experimenting with and learning new technologies, participating in internal & external technology communities, mentoring other members of the engineering community."
+        },
+        "normalizedDatePosted": "2024-03-11T18:55:37.740Z",
+        "soc": [
+            {
+                "id": "15113200",
+                "usen": "Software Developers, Applications"
+            }
+        ],
+        "hashes": [
+            {
+                "sourcePath": "$.jobPosting.description",
+                "description": "jobPosting description hashed.",
+                "hashAlgorithm": "SHA-256",
+                "value": "sXjd/6PHVRQZllhg8U/RspG3I2bpx4ui0BrY0onXcOM="
+            },
+            {
+                "sourcePath": "$.jobPosting.title",
+                "description": "jobPosting title hashed.",
+                "hashAlgorithm": "SHA-256",
+                "value": "bEVR1JV7ybDZ2EXCHLtW64qN9sVkvwHR0ZbEpe9M00o="
+            },
+            {
+                "sourcePath": "$.jobPosting.hiringOrganization",
+                "description": "jobPosting hiringOrganization as json hashed.",
+                "hashAlgorithm": "SHA-256",
+                "value": "mcwdNu6Esfif1kez4tu1GG8LnulBGb0DKYACBSHDJ00="
+            },
+            {
+                "sourcePath": "$.jobPosting.jobLocation",
+                "description": "jobPosting jobLocation as json hashed.",
+                "hashAlgorithm": "SHA-256",
+                "value": "zhmGiMBVeYxdlGYhriI3JcdW//LW8uenv8FXkqiHPAg="
+            },
+            {
+                "sourcePath": "$.jobPosting.description,$.jobPosting.title,$.enrichments.normalizedJobLocations[0].postalAddress.address.addressLocality,$.enrichments.normalizedJobLocations[0].postalAddress.address.addressRegion,$.enrichments.normalizedJobLocations[0].postalAddress.address.addressCountry",
+                "description": "Google indexing deduplication",
+                "hashAlgorithm": "jobs-text-utils_JobsDuplicationUtils_computeDuplicationScore",
+                "value": "0-1884952527|000560719478|34939A68C4DEA3941396973BA325B904"
+            }
+        ]
+    },
+    "seoJobId": "senior-software-engineer-full-stack-typescript-react-node-aws-cambridge-ma--57452e3c-5ec3-41eb-a667-b7a0dc109ff3",
+    "formattedDate": "2024-03-11T00:00:00",
+    "dateRecency": "1 day ago",
+    "jobAd": {
+        "type": "LexemeJobAd",
+        "provider": "LEXEME",
+        "tracking": {
+            "clickUrl": "https://prod.monsterview.com/r?e=eyJ2IjoiMS4xMSIsImF2IjoxNjM3NjA4LCJhdCI6MTYyLCJidCI6MCwiY20iOjI5Mzg0MTY2OCwiY2giOjUwNDc1LCJjayI6e30sImNyIjozMzE0MTU2NDAsImRpIjoiOWMxNDU4M2EwM2Q1NGM1Y2E0MWE0MTY5NzdmM2MwZDkiLCJkaiI6MCwiaWkiOiJiODJkN2JmMjNmNGQ0OTk5OGM0NTNiM2FiMGIzNmU5NCIsImRtIjozLCJmYyI6NTA3MDkxMzQyLCJmbCI6NDk2MDQxNTQ4LCJpcCI6IjE2NS4yMjUuMTE0LjE4NCIsIm53IjoxMDUxNSwicGMiOjAuNjIsIm9wIjowLjYyLCJlYyI6MjEuOTcyOCwiZ20iOjAsImVwIjoiV0VCIiwicHIiOjIxNzkxMywicnQiOjMsInJzIjo3MTUsInNhIjoiNTMiLCJzYiI6ImktMDQxYjZmYTQ0OWQ1ZGVjNzciLCJzcCI6MzIxNDc2OSwic3QiOjExMjk3MTIsInVrIjoiejAzMGY0NjQ1Njk4OTM3YWZjMWVmNmU5OWViNDIyYjZmIiwidHMiOjE3MTAyMDQ3OTM2MDQsInBuIjoiV0VCOkpPQl9TRUFSQ0giLCJnYyI6dHJ1ZSwiZ0MiOnRydWUsImdzIjoibm9uZSIsImJpIjoxLCJ0eiI6IlVUQyIsInVyIjpudWxsfQ&s=ZNqzkF4DLt0xCwxXhHteGKVKU4o&property%3Aaid=69d59a17f8e7d182ae0e0368c9eec9ac&property%3Acname=57452e3c-5ec3-41eb-a667-b7a0dc109ff3_Senior+Software+Engineer%2C+Full+Stack+%28TypeScript%2C+React%2C+Node%2C+AWS%29&property%3Acsrc=ppc.now&property%3Atid=monster.com&property%3Acur=USD&property%3Aexr=1.0&property%3Ajid=57452e3c-5ec3-41eb-a667-b7a0dc109ff3&property%3Ajloc=%5B%7B%22city%22%3A%22Cambridge%22%2C%22state%22%3A%22MA%22%2C%22country%22%3A%22US%22%2C%22zipcode%22%3Anull%2C%22latitude%22%3A%2242.375%22%2C%22longitude%22%3A%22-71.106%22%7D%5D&property%3Ajmsc=1500127001001&property%3Ajtit=Senior+Software+Engineer%2C+Full+Stack+%28TypeScript%2C+React%2C+Node%2C+AWS%29&property%3Asid=8c7e20f4-b7e2-4f0d-b4ef-33b1a4eb8243&property%3Alat=-33.8399&property%3Alng=151.0583&property%3Apcd=tmppx&property%3Aua=Java-http-client%2F17.0.10&property%3Arip=165.225.114.184&property%3Asname=Web&property%3Asdate=2024-03-11T19%3A01%3A06.46&property%3Aac=US&property%3Aap=LEXEME&property%3Asp=Software+Engineer&property%3Asl=Boston%2C+MA",
+            "impressionUrl": "https://prod.monsterview.com/i.gif?e=eyJ2IjoiMS4xMSIsImF2IjoxNjM3NjA4LCJhdCI6MTYyLCJidCI6MCwiY20iOjI5Mzg0MTY2OCwiY2giOjUwNDc1LCJjayI6e30sImNyIjozMzE0MTU2NDAsImRpIjoiOWMxNDU4M2EwM2Q1NGM1Y2E0MWE0MTY5NzdmM2MwZDkiLCJkaiI6MCwiaWkiOiJiODJkN2JmMjNmNGQ0OTk5OGM0NTNiM2FiMGIzNmU5NCIsImRtIjozLCJmYyI6NTA3MDkxMzQyLCJmbCI6NDk2MDQxNTQ4LCJpcCI6IjE2NS4yMjUuMTE0LjE4NCIsIm53IjoxMDUxNSwicGMiOjAuNjIsIm9wIjowLjYyLCJlYyI6MjEuOTcyOCwiZ20iOjAsImVwIjoiV0VCIiwicHIiOjIxNzkxMywicnQiOjMsInJzIjo3MTUsInNhIjoiNTMiLCJzYiI6ImktMDQxYjZmYTQ0OWQ1ZGVjNzciLCJzcCI6MzIxNDc2OSwic3QiOjExMjk3MTIsInVrIjoiejAzMGY0NjQ1Njk4OTM3YWZjMWVmNmU5OWViNDIyYjZmIiwidHMiOjE3MTAyMDQ3OTM2MDUsInBuIjoiV0VCOkpPQl9TRUFSQ0giLCJnYyI6dHJ1ZSwiZ0MiOnRydWUsImdzIjoibm9uZSIsImJpIjoxLCJ0eiI6IlVUQyIsImJhIjo1MiwiZnEiOjB9&s=kf0hIAhaqD_27tEC0MCUoHTfVrw&property%3Aaid=69d59a17f8e7d182ae0e0368c9eec9ac&property%3Acname=57452e3c-5ec3-41eb-a667-b7a0dc109ff3_Senior+Software+Engineer%2C+Full+Stack+%28TypeScript%2C+React%2C+Node%2C+AWS%29&property%3Acsrc=ppc.now&property%3Atid=monster.com&property%3Acur=USD&property%3Aexr=1.0&property%3Ajid=57452e3c-5ec3-41eb-a667-b7a0dc109ff3&property%3Ajloc=%5B%7B%22city%22%3A%22Cambridge%22%2C%22state%22%3A%22MA%22%2C%22country%22%3A%22US%22%2C%22zipcode%22%3Anull%2C%22latitude%22%3A%2242.375%22%2C%22longitude%22%3A%22-71.106%22%7D%5D&property%3Ajmsc=1500127001001&property%3Ajtit=Senior+Software+Engineer%2C+Full+Stack+%28TypeScript%2C+React%2C+Node%2C+AWS%29&property%3Asid=8c7e20f4-b7e2-4f0d-b4ef-33b1a4eb8243&property%3Alat=-33.8399&property%3Alng=151.0583&property%3Apcd=tmppx&property%3Aua=Java-http-client%2F17.0.10&property%3Arip=165.225.114.184&property%3Asname=Web&property%3Asdate=2024-03-11T19%3A01%3A06.46&property%3Aac=US&property%3Aap=LEXEME&property%3Asp=Software+Engineer&property%3Asl=Boston%2C+MA"
+        }
+    },
+    "brandingExt": {
+        "companyBannerUrl": null,
+        "companyPhotos": null,
+        "companyBenefits": null
+    },
+    "canonicalUrl": "https://www.monster.com/job-openings/senior-software-engineer-full-stack-typescript-react-node-aws-cambridge-ma--57452e3c-5ec3-41eb-a667-b7a0dc109ff3?mstr_dist=true",
+    "searchEngine": "LEXEME_PAID",
+    "bespokeJob": false,
+    "ldJsonEligible": true,
+    "promoted": true
+}
