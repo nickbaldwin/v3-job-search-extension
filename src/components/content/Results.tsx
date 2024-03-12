@@ -1,7 +1,7 @@
 import { useStore } from '../../store/store.ts';
 
 export const Results = () => {
-    const results = useStore((state) => state.results);
+    const results = useStore((state) => state.resultsSize);
     const bears = useStore((state) => state.bears);
     const inc = useStore((state) => state.increase);
 

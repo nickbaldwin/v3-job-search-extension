@@ -6,13 +6,11 @@ log({ logType: 'info', moduleName, message: 'loaded' });
 
 console.log(helper());
 
-// const setBears = useStore.getState().setBears;
-
 const sendResults = () => {
     log({
         logType: 'info',
         moduleName,
-        message: 'results',
+        fn: 'sendResults',
         // @ts-expect-error added to window by SVX
         payload: window.searchResults,
     });
@@ -31,36 +29,35 @@ const sendResults = () => {
 const poller: number = setInterval((): void => {
     log({ logType: 'info', moduleName, message: 'polling...' });
     const cards = document.querySelector('.infinite-scroll-component');
+
     // todo ? - deal with both being present, and switching layout?
-    const cardList = document.querySelector(
-        "[class^='job-search-resultsstyle__CardGrid']"
-    );
+    const cardList = document.querySelector('#JobCardGrid>ul');
 
     if (cards !== null && cardList !== null) {
         log({ logType: 'info', moduleName, message: 'clear polling...' });
         clearInterval(poller);
 
-        // monitor updates to card list and listen for mouse hovers
-
         log({
             logType: 'INFO',
             moduleName,
+            fn: 'poller',
             message: 'setting up observer',
             payload: cardList,
         });
+
+        // monitor updates to card list and listen for mouse hovers
         const resultsObserver = new MutationObserver(() => {
             log({
                 logType: 'INFO',
                 moduleName,
-                message: 'mutations...',
+                fn: 'resultsObserver',
+                message: 'mutations... will send results',
                 // payload: mutations,
             });
             sendResults();
         });
-
         resultsObserver.observe(cardList, {
             childList: true,
-            subtree: true, // report added/removed nodes
         });
     }
-}, 1000);
+}, 300);

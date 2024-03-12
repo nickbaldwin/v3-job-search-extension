@@ -5,23 +5,24 @@ import {
 } from '../../utils/messaging.ts';
 
 import { log } from '../../utils/logger.ts';
-const moduleName = 'resultsListener function';
+const moduleName = 'resultsListener';
 
-const setResults = useStore.getState().setResults;
+const updateResults = useStore.getState().updateResults;
 export const ListenerFunction = () => {
-    console.log('listener function');
+    log({ logType: 'info', moduleName, message: 'loaded' });
     const messageHandler = (event: MessageEvent<MessageType>) => {
-        log({
-            logType: 'info',
-            moduleName,
-            message: 'event received',
-            payload: event?.data,
-        });
-
         if (event.data?.type === 'results') {
-            // @ts-expect-error todo need to to add type
-            const n = event?.data?.payload?.jobResults?.length || 0;
-            setResults(n);
+            log({
+                logType: 'info',
+                moduleName,
+                fn: 'message handler',
+                message: 'results message received',
+                payload: event?.data,
+            });
+
+            // @ts-expect-error todo typing
+            updateResults(event?.data?.payload);
+            console.log(window.location.href);
         } else {
             //
         }
