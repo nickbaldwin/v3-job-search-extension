@@ -12,8 +12,8 @@ const Job = z.object({
     ),
     provider: z.optional(
         z.object({
-            code: z.string(),
-            name: z.string(),
+            code: z.optional(z.string()),
+            name: z.optional(z.string()),
         })
     ),
     status: z.string(),
@@ -25,7 +25,7 @@ const Job = z.object({
     modifiedDate: z.string(),
     apply: z.object({
         applyType: z.string(),
-        applyUrl: z.string(),
+        applyUrl: z.optional(z.string()),
     }),
     jobPosting: z.object({
         description: z.string(),
@@ -34,22 +34,28 @@ const Job = z.object({
         hiringOrganization: z.object({
             name: z.string(),
         }),
-        identifier: z.object({
-            name: z.string(),
-            value: z.string(),
-        }),
+        identifier: z.optional(
+            z.object({
+                name: z.string(),
+                value: z.string(),
+            })
+        ),
         title: z.string(),
         jobLocation: z.array(
             z.object({
-                address: z.object({
-                    addressLocality: z.string(),
-                    addressRegion: z.string(),
-                    addressCountry: z.string(),
-                }),
-                geo: z.object({
-                    latitude: z.string(),
-                    longitude: z.string(),
-                }),
+                address: z.optional(
+                    z.object({
+                        addressLocality: z.optional(z.string()),
+                        addressRegion: z.optional(z.string()),
+                        addressCountry: z.optional(z.string()),
+                    })
+                ),
+                geo: z.optional(
+                    z.object({
+                        latitude: z.string(),
+                        longitude: z.string(),
+                    })
+                ),
             })
         ),
     }),
@@ -72,38 +78,46 @@ const Job = z.object({
             '@type': z.string(),
             name: z.string(),
         }),
-        identifier: z.object({
-            '@type': z.string(),
-            name: z.string(),
-            value: z.string(),
-        }),
-        jobLocation: z.array(
+        identifier: z.optional(
             z.object({
                 '@type': z.string(),
-                address: z.object({
-                    '@type': z.string(),
-                    addressLocality: z.string(),
-                    addressRegion: z.string(),
-                    addressCountry: z.string(),
-                }),
-                geo: z.object({
-                    '@type': z.string(),
-                    latitude: z.string(),
-                    longitude: z.string(),
-                }),
+                name: z.string(),
+                value: z.string(),
             })
         ),
+        jobLocation: z.optional(
+            z.array(
+                z.object({
+                    '@type': z.string(),
+                    address: z.optional(
+                        z.object({
+                            '@type': z.string(),
+                            addressLocality: z.optional(z.string()),
+                            addressRegion: z.optional(z.string()),
+                            addressCountry: z.optional(z.string()),
+                        })
+                    ),
+                    geo: z.optional(
+                        z.object({
+                            '@type': z.string(),
+                            latitude: z.string(),
+                            longitude: z.string(),
+                        })
+                    ),
+                })
+            )
+        ),
         jobLocationType: z.string(),
-        occupationalCategory: z.string(),
+        occupationalCategory: z.optional(z.string()),
         salaryCurrency: z.string(),
         title: z.string(),
         validThrough: z.string(),
     }),
     now: z.optional(
         z.object({
-            jobAdPricingTypeId: z.number(),
-            trackingUrl: z.string(),
-            activationDate: z.string(),
+            jobAdPricingTypeId: z.optional(z.number()),
+            trackingUrl: z.optional(z.string()),
+            activationDate: z.optional(z.string()),
             attributeValuePairs: z.optional(
                 z.array(
                     z.object({
@@ -118,28 +132,36 @@ const Job = z.object({
         language: z.object({
             languageCode: z.string(),
         }),
-        mescos: z.array(
-            z.object({
-                id: z.string(),
-            })
+        mescos: z.optional(
+            z.array(
+                z.object({
+                    id: z.string(),
+                })
+            )
         ),
         normalizedJobLocations: z.array(
             z.object({
-                postalAddress: z.object({
-                    '@context': z.string(),
-                    '@type': z.string(),
-                    address: z.object({
+                postalAddress: z.optional(
+                    z.object({
+                        '@context': z.string(),
                         '@type': z.string(),
-                        addressLocality: z.string(),
-                        addressRegion: z.string(),
-                        addressCountry: z.string(),
-                    }),
-                    geo: z.object({
-                        '@type': z.string(),
-                        latitude: z.string(),
-                        longitude: z.string(),
-                    }),
-                }),
+                        address: z.optional(
+                            z.object({
+                                '@type': z.string(),
+                                addressLocality: z.optional(z.string()),
+                                addressRegion: z.optional(z.string()),
+                                addressCountry: z.optional(z.string()),
+                            })
+                        ),
+                        geo: z.optional(
+                            z.object({
+                                '@type': z.string(),
+                                latitude: z.string(),
+                                longitude: z.string(),
+                            })
+                        ),
+                    })
+                ),
                 locationId: z.string(),
                 countryCode: z.string(),
             })
@@ -149,41 +171,49 @@ const Job = z.object({
                 postalAddress: z.object({
                     '@context': z.string(),
                     '@type': z.string(),
-                    address: z.object({
-                        '@type': z.string(),
-                        addressLocality: z.string(),
-                        addressRegion: z.string(),
-                        addressCountry: z.string(),
-                    }),
-                    geo: z.object({
-                        '@type': z.string(),
-                        latitude: z.string(),
-                        longitude: z.string(),
-                    }),
+                    address: z.optional(
+                        z.object({
+                            '@type': z.string(),
+                            addressLocality: z.optional(z.string()),
+                            addressRegion: z.optional(z.string()),
+                            addressCountry: z.optional(z.string()),
+                        })
+                    ),
+                    geo: z.optional(
+                        z.object({
+                            '@type': z.string(),
+                            latitude: z.string(),
+                            longitude: z.string(),
+                        })
+                    ),
                 }),
                 locationId: z.string(),
                 countryCode: z.string(),
             })
         ),
-        companyKb: z.object({
-            normalizedCompanyName: z.string(),
-            normalizedCompanyGuid: z.string(),
-        }),
+        companyKb: z.optional(
+            z.object({
+                normalizedCompanyName: z.optional(z.string()),
+                normalizedCompanyGuid: z.optional(z.string()),
+            })
+        ),
         normalizedTitles: z.array(
             z.object({
                 title: z.string(),
             })
         ),
-        normalizedSalary: z.object({
-            currencyCode: z.object({
-                name: z.string(),
-                id: z.number(),
-            }),
-            salaryBaseType: z.object({
-                name: z.string(),
-                id: z.number(),
-            }),
-        }),
+        normalizedSalary: z.optional(
+            z.object({
+                currencyCode: z.object({
+                    name: z.string(),
+                    id: z.number(),
+                }),
+                salaryBaseType: z.object({
+                    name: z.string(),
+                    id: z.number(),
+                }),
+            })
+        ),
         jobLocationType: z.object({
             name: z.string(),
             id: z.number(),
@@ -212,18 +242,20 @@ const Job = z.object({
                 url: z.string(),
             })
         ),
-        qualifiedForG4J: z.boolean(),
-        isPublicJob: z.boolean(),
+        qualifiedForG4J: z.optional(z.boolean()),
+        isPublicJob: z.optional(z.boolean()),
         googleSyntheticValidThrough: z.string(),
         processedDescriptions: z.object({
             shortDescription: z.string(),
         }),
         normalizedDatePosted: z.string(),
-        soc: z.array(
-            z.object({
-                id: z.string(),
-                usen: z.string(),
-            })
+        soc: z.optional(
+            z.array(
+                z.object({
+                    id: z.string(),
+                    usen: z.string(),
+                })
+            )
         ),
         hashes: z.array(
             z.object({
@@ -249,9 +281,23 @@ const Job = z.object({
     ),
     brandingExt: z.optional(
         z.object({
-            companyBannerUrl: z.null(),
-            companyPhotos: z.null(),
-            companyBenefits: z.null(),
+            companyBannerUrl: z.nullable(z.string()),
+            companyPhotos: z.nullable(
+                z.array(
+                    z.object({
+                        caption: z.string(),
+                        url: z.string(),
+                    })
+                )
+            ),
+            companyBenefits: z.nullable(
+                z.array(
+                    z.object({
+                        name: z.string(),
+                        iconClass: z.string(),
+                    })
+                )
+            ),
         })
     ),
     canonicalUrl: z.string(),

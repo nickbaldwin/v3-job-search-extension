@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import zukeeper from 'zukeeper';
+import { DisplayJob, transformJobs } from '../schema/transform';
 
 interface ResultsData {
     timestamp: string;
@@ -12,6 +13,7 @@ interface State {
     increase: (by: number) => void;
 
     resultsSize: number;
+    results: DisplayJob[];
     resultsLast: ResultsData | null;
     resultsHistory: ResultsData[];
     updateResults: (add: ResultsData) => void;
@@ -27,6 +29,7 @@ export const useStore = create<State>()(
     zukeeper((set) => ({
         bears: 0,
 
+        results: [],
         resultsSize: 0,
         resultsLast: null,
         resultsHistory: [],
@@ -48,7 +51,12 @@ export const useStore = create<State>()(
                     ) || [],
             };
             console.log(results);
+
+            // @ts-expect-error ugh
+            const displayJobs = transformJobs(payload?.jobResults || []);
+            console.log(displayJobs);
             set((state: { resultsHistory: ResultsData[] }) => ({
+                results: displayJobs,
                 resultsHistory: [...state.resultsHistory, results],
                 resultsSize: results.size,
                 resultsLast: results,

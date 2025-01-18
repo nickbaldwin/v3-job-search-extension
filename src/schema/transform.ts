@@ -2,7 +2,7 @@ import { parseJob } from './jobSchema.ts';
 import { Job } from './jobSchema.ts';
 
 // todo
-interface DisplayJob {
+export interface DisplayJob {
     position: string;
     adRank: string;
     remainder: string;
@@ -12,12 +12,10 @@ interface DisplayJob {
     campaignId: string;
     adProvider: string;
     searchEngine: string;
-
     company: string;
     title: string;
     description: string;
     location: string;
-
     nowId: string;
     jobId: string;
     template: string;
@@ -39,15 +37,54 @@ interface DisplayJob {
     decisionId: string;
     url: string;
     selected: string;
-
-    // todo
     data: Job | null;
     kevelData: object | null;
 }
 
+export const blankJob: DisplayJob = {
+    adProvider: '',
+    adRank: '',
+    applyType: '',
+    campaignId: '',
+    data: null,
+    dateRecency: '',
+    decisionId: '',
+    ecpm: 0,
+    formattedDate: '',
+    ingestionMethod: '',
+    kevelData: null,
+    mesco: '',
+    nowId: '',
+    position: '',
+    price: 0,
+    pricingType: '',
+    provider: '',
+    providerCode: '',
+    providerJobId: '',
+    refCode: '',
+    relevanceScore: 0,
+    remainder: '',
+    remote: '',
+    searchEngine: '',
+    selected: '',
+    seoJobId: '',
+    template: '',
+    url: '',
+    validThrough: '',
+    validThroughGoogle: '',
+    xCode: '',
+    title: '',
+    description: '',
+    company: '',
+    location: '',
+    // datePosted: datePosted,
+    jobId: '',
+};
+
 // todo - use Job type
-export const transformJob = (job: Job): DisplayJob | null => {
+export const transformJob = (job: object): DisplayJob => {
     const parsed = parseJob(job);
+
     if (parsed.success) {
         const {
             jobPosting,
@@ -107,6 +144,16 @@ export const transformJob = (job: Job): DisplayJob | null => {
         };
     } else {
         // todo deal with error
-        return null;
+        parsed.error.issues.forEach((issue) => {
+            console.log('\n\n\n', issue, '\n\n\n');
+        });
+        return blankJob;
     }
+};
+
+export const transformJobs = (jobs: object[]): DisplayJob[] => {
+    if (!jobs || jobs.length === 0) {
+        return [];
+    }
+    return jobs.map(transformJob);
 };
