@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { transformJob } from './transform.ts';
+import { transformJob, transformJobs, blankJob } from './transform.ts';
 import job from './sampleJob.json';
 
 test('transformed job has correct properties', () => {
@@ -15,9 +15,15 @@ test('transformed job has expected properties', () => {
     expect(transformJob(job)).toHaveProperty('position');
 });
 
-test('transformer returns null on error', () => {
-    // @ts-expect-error deliberate
-    expect(transformJob({ missing: 'lots' })).toBe(null);
+test('transformer returns blank on error', () => {
+    expect(transformJob({ missing: 'lots' })).toBe(blankJob);
+});
+
+test('transform jobs works', () => {
+    const tj = transformJob(job);
+    expect(
+        transformJobs([{ blah: 'lots' }, job, { blah: 'more' }])
+    ).toStrictEqual([blankJob, tj, blankJob]);
 });
 
 // todo - check all properties

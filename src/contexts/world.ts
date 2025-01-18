@@ -30,10 +30,10 @@ const poller: number = setInterval((): void => {
     log({ logType: 'info', moduleName, message: 'polling...' });
     const cards = document.querySelector('.infinite-scroll-component');
 
-    // todo ? - deal with both being present, and switching layout?
-    const cardList = document.querySelector('#JobCardGrid>ul');
+    // todo ? - deal with card grid layout, and switching layout
+    const cardListSplit = document.querySelector('#JobCardGrid>div');
 
-    if (cards !== null && cardList !== null) {
+    if (cards !== null && cardListSplit !== null) {
         log({ logType: 'info', moduleName, message: 'clear polling...' });
         clearInterval(poller);
 
@@ -42,7 +42,7 @@ const poller: number = setInterval((): void => {
             moduleName,
             fn: 'poller',
             message: 'setting up observer',
-            payload: cardList,
+            payload: cardListSplit,
         });
 
         // monitor updates to card list and listen for mouse hovers
@@ -56,7 +56,7 @@ const poller: number = setInterval((): void => {
             });
             sendResults();
         });
-        resultsObserver.observe(cardList, {
+        resultsObserver.observe(cardListSplit, {
             childList: true,
         });
     }

@@ -1,4 +1,4 @@
-import { useStore } from '../../store/store.ts';
+import useStore from '../../store/store.ts';
 import {
     MessageType,
     subscribeToWindowMessages,
@@ -12,7 +12,7 @@ const moduleName = 'resultsListener';
 // however zustand allows the store to be used outside of React, so we can use
 // update the store from the world script - using a listener function
 export const Listener = () => {
-    const setResults = useStore((state) => state.setResults);
+    const setResults = useStore((state) => state.results);
 
     useEffect(() => {
         const messageHandler = (event: MessageEvent<MessageType>) => {
@@ -26,6 +26,8 @@ export const Listener = () => {
             if (event.data?.type === 'results') {
                 // @ts-expect-error need to tadd type
                 const n = event?.data?.payload?.jobResults?.length || 0;
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
                 setResults(n);
             } else {
                 //

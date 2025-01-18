@@ -1,5 +1,8 @@
 import { create } from 'zustand';
-import zukeeper from 'zukeeper';
+
+import zustymiddlewarets from 'zustymiddlewarets';
+
+import { DisplayJob, transformJobs } from '../schema/transform';
 
 interface ResultsData {
     timestamp: string;
@@ -12,6 +15,7 @@ interface State {
     increase: (by: number) => void;
 
     resultsSize: number;
+    results: DisplayJob[];
     resultsLast: ResultsData | null;
     resultsHistory: ResultsData[];
     updateResults: (add: ResultsData) => void;
@@ -21,12 +25,13 @@ interface State {
     updateUrl: (to: string) => void;
 }
 
-export const useStore = create<State>()(
+const useStore = create<State>()(
     // todo - config for devtools
     // @ts-expect-error any
-    zukeeper((set) => ({
+    zustymiddlewarets((set) => ({
         bears: 0,
 
+        results: [],
         resultsSize: 0,
         resultsLast: null,
         resultsHistory: [],
@@ -47,8 +52,13 @@ export const useStore = create<State>()(
                         (j: { jobId: string }) => j.jobId
                     ) || [],
             };
-            console.log(results);
+            console.log('results', results);
+
+            // @ts-expect-error ugh
+            const displayJobs = transformJobs(payload?.jobResults || []);
+            console.log('displayJobs', displayJobs);
             set((state: { resultsHistory: ResultsData[] }) => ({
+                results: displayJobs,
                 resultsHistory: [...state.resultsHistory, results],
                 resultsSize: results.size,
                 resultsLast: results,
@@ -61,4 +71,10 @@ export const useStore = create<State>()(
 // note this is not exposed in top frame - need to select extension frame in order
 // to access this in devtools
 // @ts-expect-error global property
+declare global {
+    interface Window {
+        store: typeof useStore;
+    }
+}
 window.store = useStore;
+export default useStore;
