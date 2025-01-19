@@ -82,7 +82,7 @@ export const blankJob: DisplayJob = {
 };
 
 // todo - use Job type
-export const transformJob = (job: object): DisplayJob => {
+export const transformJob = (job: object, position: number): DisplayJob => {
     const parsed = parseJob(job);
 
     console.log('parsed', parsed);
@@ -129,7 +129,7 @@ export const transformJob = (job: object): DisplayJob => {
             kevelData: null,
             mesco: '',
             nowId: '',
-            position: '',
+            position: '' + position,
             price: 0,
             pricingType: '',
             provider: name,

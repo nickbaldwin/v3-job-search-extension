@@ -53,7 +53,6 @@ export const ResultsTable = ({ results }: { results: DisplayJob[] }) => {
             <tbody>
                 {results.map((r: DisplayJob, pos: number) => (
                     <ResultRow
-                        pos={pos}
                         result={r}
                         propertiesToDisplay={propertiesToDisplay}
                     />
