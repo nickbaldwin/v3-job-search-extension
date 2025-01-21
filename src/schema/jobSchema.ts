@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { DisplayJob } from './transform.ts';
 
 const Job = z.object({
     jobId: z.string(),
@@ -273,12 +274,66 @@ const Job = z.object({
     bespokeJob: z.boolean(),
     ldJsonEligible: z.boolean(),
     promoted: z.boolean(),
-});
+})
+    .transform((item) => ({
+        title: item.normalizedJobPosting.title || item.jobPosting.title || '',
+        description: item.normalizedJobPosting.description || item.jobPosting.description || '',
+        location: '',
+        remote: '',
+        company: item.normalizedJobPosting.hiringOrganization.name || item.jobPosting.hiringOrganization.name || '',
+        nowId: '',
+        jobId: item.jobId,
+        template: '',
+        xCode: '',
+        applyType: item.apply.applyType || '',
+        formattedDate: '',
+        mesco: '' + item.enrichments.mescos?.length || '',
+        provider: item.provider?.name || '',
+        providerCode: item.provider?.code || '',
+        providerJobId: item.provider?.name || '',
+        dateRecency: '',
+        ingestionMethod: item.ingestionMethod,
+        pricingType: '',
+        seoJobId: '',
+        refCode: '',
+        validThrough: '',
+        validThroughGoogle: '',
+        url: '',
 
-export const parseJob = (job: object) => {
+        data: {
+            ...item
+        },
+
+        kevelData: {} || null,
+
+
+        decisionId: '',
+        adProvider: '',
+        searchEngine: '',
+
+        adRank: '',
+        remainder: '',
+        relevanceScore: '',
+        ecpm: '',
+        price: '',
+        campaignId: '',
+
+        // todo - add here or pass in later?
+        position: '0',
+        selected: false,
+    }));
+
+export const parseJob = (job: object): ParsedJob => {
     return Job.safeParse(job);
 };
 
 // extract the inferred type
+// todo - does this include the transform?
 export type Job = z.infer<typeof Job>;
 // { jobId: string }
+
+export type ParsedJob = {
+    success: boolean,
+    data?: DisplayJob
+
+}

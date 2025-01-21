@@ -1,21 +1,14 @@
 import { parseJob } from './jobSchema.ts';
-import { Job } from './jobSchema.ts';
 
-// todo
+// todo - use zod to infer type
 export interface DisplayJob {
-    position: string;
-    adRank: string;
-    remainder: string;
-    relevanceScore: number;
-    ecpm: number;
-    price: number;
-    campaignId: string;
-    adProvider: string;
-    searchEngine: string;
-    company: string;
+
+
     title: string;
     description: string;
     location: string;
+    remote: string;
+    company: string;
     nowId: string;
     jobId: string;
     template: string;
@@ -33,12 +26,24 @@ export interface DisplayJob {
     refCode: string;
     validThrough: string;
     validThroughGoogle: string;
-    remote: string;
-    decisionId: string;
     url: string;
-    selected: string;
-    data: Job | null;
+
+    data: object | null;
     kevelData: object | null;
+
+    decisionId: string;
+    adProvider: string;
+    searchEngine: string;
+
+    position: string;
+    selected: boolean;
+
+    adRank: string;
+    remainder: string;
+    relevanceScore: string;
+    ecpm: string;
+    price: string;
+    campaignId: string;
 }
 
 export const blankJob: DisplayJob = {
@@ -49,24 +54,24 @@ export const blankJob: DisplayJob = {
     data: null,
     dateRecency: '',
     decisionId: '',
-    ecpm: 0,
+    ecpm: '0',
     formattedDate: '',
     ingestionMethod: '',
     kevelData: null,
     mesco: '',
     nowId: '',
     position: '',
-    price: 0,
+    price: '0',
     pricingType: '',
     provider: '',
     providerCode: '',
     providerJobId: '',
     refCode: '',
-    relevanceScore: 0,
+    relevanceScore: '0',
     remainder: '',
     remote: '',
     searchEngine: '',
-    selected: '',
+    selected: false,
     seoJobId: '',
     template: '',
     url: '',
@@ -82,83 +87,63 @@ export const blankJob: DisplayJob = {
 };
 
 // todo - use Job type
+
+// @ts-expect-error todo
 export const transformJob = (job: object, position: number): DisplayJob => {
     const parsed = parseJob(job);
 
     console.log('parsed', parsed);
     if (parsed.success) {
-        const {
-            jobPosting,
-            normalizedJobPosting,
-            now = {
-                jobAdPricingTypeId: '',
-            },
-            jobId = '',
-            provider = {
-                code: '',
-                name: '',
-            },
-            status = '',
-            jobStatus = '',
-            ingestionMethod = '',
-            apply,
-            jobAd,
-        } = parsed.data;
-        const {
-            title = '',
-            description = '',
-            hiringOrganization = { name: '' },
-            jobLocation,
-            // datePosted,
-        } = jobPosting;
-        const { applyType = '' } = apply;
-        const { name = '', code = '' } = provider;
+
         // todo - deal with position etc
         // todo - deal with kevel data etc
         return {
             adProvider: '',
             adRank: '',
-            applyType,
+            applyType: '',
             campaignId: '',
             data: null,
             dateRecency: '',
             decisionId: '',
-            ecpm: 0,
+            ecpm: '0',
             formattedDate: '',
-            ingestionMethod,
+            ingestionMethod: '',
             kevelData: null,
             mesco: '',
             nowId: '',
             position: '' + position,
-            price: 0,
+            price: '0',
             pricingType: '',
-            provider: name,
-            providerCode: code,
+            provider: '',
+            providerCode: '',
             providerJobId: '',
             refCode: '',
-            relevanceScore: 0,
+            relevanceScore: '0',
             remainder: '',
             remote: '',
             searchEngine: '',
-            selected: '',
+            selected: false,
             seoJobId: '',
             template: '',
             url: '',
             validThrough: '',
             validThroughGoogle: '',
             xCode: '',
-            title,
-            description,
-            company: hiringOrganization?.name || '',
-            location: jobLocation?.[0]?.address?.addressLocality || '',
+            title: '',
+            description: '',
+            company: '',
+            location: '',
             // datePosted: datePosted,
-            jobId: jobId,
+            jobId: '',
         };
-    } else {
+    } else if (!parsed.success) {
         // todo deal with error
+        /*
         parsed.error.issues.forEach((issue) => {
             console.log('\n\n\n', issue, '\n\n\n');
         });
+
+         */
         return blankJob;
     }
 };
