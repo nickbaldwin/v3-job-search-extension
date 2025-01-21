@@ -1,6 +1,6 @@
-import { DisplayJob, blankJob } from '../../schema/transform.ts';
+import { DisplayJob } from '../../schema/transform.ts';
 import { ResultRow } from './ResultsRow.tsx';
-import { Job } from '../../schema/jobSchema.ts';
+// import { Job } from '../../schema/jobSchema.ts';
 
 const p = [
     'position',
@@ -51,7 +51,7 @@ export const ResultsTable = ({ results }: { results: DisplayJob[] }) => {
                 ))}
             </thead>
             <tbody>
-                {results.map((r: DisplayJob, pos: number) => (
+                {results.map((r: DisplayJob) => (
                     <ResultRow
                         result={r}
                         propertiesToDisplay={propertiesToDisplay}
