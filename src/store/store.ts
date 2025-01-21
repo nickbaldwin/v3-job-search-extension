@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-
 import zustymiddlewarets from 'zustymiddlewarets';
 
 import { DisplayJob, transformJobs } from '../schema/transform';
@@ -55,13 +54,14 @@ const useStore = create<State>()(
             console.log('results', results);
 
             // @ts-expect-error ugh
-            const displayJobs = transformJobs(payload?.jobResults || []);
-            console.log('displayJobs', displayJobs);
-            set((state: { resultsHistory: ResultsData[] }) => ({
-                results: displayJobs,
-                resultsHistory: [...state.resultsHistory, results],
-                resultsSize: results.size,
-                resultsLast: results,
+            const transformedJobs = transformJobs(payload?.jobResults || []);
+            set((state: {
+                resultsHistory: ResultsData[] }) => ({
+                    results: transformedJobs,
+                    // resultsData: displayJobs.data.source,
+                    resultsHistory: [...state.resultsHistory, results],
+                    resultsSize: results.size,
+                    resultsLast: results,
             }));
         },
     }))
@@ -70,7 +70,7 @@ const useStore = create<State>()(
 // todo - config for devtools
 // note this is not exposed in top frame - need to select extension frame in order
 // to access this in devtools
-// @ts-expect-error global property
+
 declare global {
     interface Window {
         store: typeof useStore;
