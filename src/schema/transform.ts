@@ -3,7 +3,6 @@ import { parseJob } from './jobSchema.ts';
 // todo - use zod to infer type
 export interface DisplayJob {
 
-
     title: string;
     description: string;
     location: string;
@@ -27,6 +26,7 @@ export interface DisplayJob {
     validThrough: string;
     validThroughGoogle: string;
     url: string;
+    jobType: string;
 
     data: object | null;
     kevelData: object | null;
@@ -40,6 +40,7 @@ export interface DisplayJob {
 
     adRank: string;
     remainder: string;
+    auctionBids: string;
     relevanceScore: string;
     ecpm: string;
     price: string;
@@ -69,6 +70,7 @@ export const blankJob: DisplayJob = {
     refCode: '',
     relevanceScore: '0',
     remainder: '',
+    auctionBids: '',
     remote: '',
     searchEngine: '',
     selected: false,
@@ -84,6 +86,7 @@ export const blankJob: DisplayJob = {
     location: '',
     // datePosted: datePosted,
     jobId: '',
+    jobType: ''
 };
 
 // todo - use Job type

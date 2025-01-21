@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { DisplayJob } from './transform.ts';
+import { getDataFromUrl, KevelData } from './helpers.ts';
 
 const Job = z.object({
     jobId: z.string(),
@@ -120,8 +121,16 @@ const Job = z.object({
                     })
                 )
             ),
+            templateId: z.optional(z.string()),
         })
     ),
+    policyDecisions: z.object({
+        jobLocationTypeDecision: z.object({
+            type: z.string(),
+            explanation: z.string(),
+            result: z.string()
+        })
+    }),
     enrichments: z.object({
         language: z.object({
             languageCode: z.string(),
@@ -164,6 +173,7 @@ const Job = z.object({
             z.object({
                 normalizedCompanyName: z.optional(z.string()),
                 normalizedCompanyGuid: z.optional(z.string()),
+                code: z.optional(z.string()),
             })
         ),
         normalizedTitles: z.array(
@@ -274,54 +284,67 @@ const Job = z.object({
     bespokeJob: z.boolean(),
     ldJsonEligible: z.boolean(),
     promoted: z.boolean(),
+    // todo - optional?
+    jobType: z.optional(z.string()),
 })
-    .transform((item) => ({
-        title: item.normalizedJobPosting.title || item.jobPosting.title || '',
-        description: item.normalizedJobPosting.description || item.jobPosting.description || '',
-        location: '',
-        remote: '',
-        company: item.normalizedJobPosting.hiringOrganization.name || item.jobPosting.hiringOrganization.name || '',
-        nowId: '',
-        jobId: item.jobId,
-        template: '',
-        xCode: '',
-        applyType: item.apply.applyType || '',
-        formattedDate: '',
-        mesco: '' + item.enrichments.mescos?.length || '',
-        provider: item.provider?.name || '',
-        providerCode: item.provider?.code || '',
-        providerJobId: item.provider?.name || '',
-        dateRecency: '',
-        ingestionMethod: item.ingestionMethod,
-        pricingType: '',
-        seoJobId: '',
-        refCode: '',
-        validThrough: '',
-        validThroughGoogle: '',
-        url: '',
+    .transform((item) => {
+        let kevelData: KevelData = {};
+        if (item.jobAd) {
+            kevelData = getDataFromUrl(item.jobAd.tracking.impressionUrl || '');
+        }
+        return {
+            title: item.normalizedJobPosting.title || item.jobPosting.title || '',
+            description: item.normalizedJobPosting.description || item.jobPosting.description || '',
+            // todo - use function to concat location info and multi-line multiple locations
+            location: (
+                item.enrichments.normalizedJobLocations[0].postalAddress?.address?.addressLocality +
+                ' ' + item.enrichments.normalizedJobLocations[0].postalAddress?.address?.addressRegion) || '',
+            remote: item.policyDecisions.jobLocationTypeDecision.result || item.normalizedJobPosting.jobLocationType ||'',
+            company: item.normalizedJobPosting.hiringOrganization.name || item.jobPosting.hiringOrganization.name || '',
+            nowId: item.externalIdentifiers?.find((i) => i.identifierName === 'nowId')?.identifierValue || '',
+            jobId: item.jobId || '',
+            template: item.now?.templateId || '',
+            xCode: item.enrichments.companyKb?.code || '',
+            applyType: item.apply.applyType || '',
+            // todo - format
+            formattedDate: item.formattedDate || '',
+            // todo - concat
+            mesco: 'y',
+            // mesco: 'y' + item.enrichments.mescos?.concat() || '',
+            provider: item.provider?.name || '',
+            providerCode: item.provider?.code || '',
+            // todo - helper function
+            providerJobId: item.provider?.name || 'y',
+            dateRecency: item.dateRecency || '',
+            ingestionMethod: item.ingestionMethod || '',
+            pricingType: '' + item.now?.jobAdPricingTypeId || '',
+            seoJobId: item.seoJobId ||'',
+            refCode: item.jobPosting.identifier?.value || '',
+            validThrough: item.normalizedJobPosting.validThrough || '',
+            validThroughGoogle: item.enrichments.googleSyntheticValidThrough || '',
+            url: item.canonicalUrl || item.jobPosting.url || '',
+            jobType: item.jobType || '',
 
-        data: {
-            ...item
-        },
+            adProvider: item.jobAd?.provider || '',
+            searchEngine: item.searchEngine ||'',
 
-        kevelData: {} || null,
+            data: { ...item },
 
+            kevelData,
+            decisionId: kevelData?.decisionId || '',
+            adRank: kevelData?.adRank || '',
+            auctionBids: kevelData?.auctionBids || '',
+            remainder: kevelData?.remainder || '',
+            relevanceScore: kevelData?.relevanceScore || '',
+            ecpm: kevelData?.ecpm || '',
+            price: kevelData?.price || '',
+            campaignId: kevelData?.campaignId || '',
 
-        decisionId: '',
-        adProvider: '',
-        searchEngine: '',
-
-        adRank: '',
-        remainder: '',
-        relevanceScore: '',
-        ecpm: '',
-        price: '',
-        campaignId: '',
-
-        // todo - add here or pass in later?
-        position: '0',
-        selected: false,
-    }));
+            // todo - add here or pass in later?
+            position: 'y',
+            selected: false,
+        };
+    });
 
 export const parseJob = (job: object): ParsedJob => {
     return Job.safeParse(job);
