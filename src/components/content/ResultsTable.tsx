@@ -1,53 +1,16 @@
 import { DisplayJob } from '../../schema/transform.ts';
 import { ResultRow } from './ResultsRow.tsx';
 // import { Job } from '../../schema/jobSchema.ts';
-
-const p = [
-    'position',
-    'adRank',
-    'remainder',
-    'relevanceScore',
-    'ecpm',
-    'price',
-    'campaignId',
-    'adProvider',
-    'searchEngine',
-    'company',
-    'title',
-    'location',
-    'nowId',
-    'jobId',
-    'template',
-    'xCode',
-    'applyType',
-    'formattedDate',
-    'mesco',
-    'provider',
-    'providerCode',
-    'providerJobId',
-    'dateRecency',
-    'ingestionMethod',
-    'pricingType',
-    ' seoJobId',
-    'refCode',
-    'validThrough',
-    'remote',
-    'decisionId',
-    'url',
-    'selected',
-    //'data',
-    //'kevelData',
-];
+import { getNamesOfFields } from '../../schema/settings.ts';
 
 export const ResultsTable = ({ results }: { results: DisplayJob[] }) => {
     // todo - replace with selected fields only
-    // const propertiesToDisplay = Object.keys(blankJob);
-    const propertiesToDisplay = p;
+    const fields = getNamesOfFields();
 
     return (
         <table>
             <thead>
-                {propertiesToDisplay.map((i) => (
+                {fields.map((i) => (
                     <th> {i} </th>
                 ))}
             </thead>
@@ -55,7 +18,7 @@ export const ResultsTable = ({ results }: { results: DisplayJob[] }) => {
                 {results.map((r: DisplayJob) => (
                     <ResultRow
                         result={r}
-                        propertiesToDisplay={propertiesToDisplay}
+                        propertiesToDisplay={fields}
                     />
                 ))}
             </tbody>

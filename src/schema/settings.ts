@@ -757,7 +757,7 @@ export const getNamesOfJobProperties = () => {
 };
 
 // returns all fields that can be displayed in the table
-export const getNamesOfFields = () => {
+export const getNamesOfFields: () => string[] = () => {
     return Object.values(Settings)
         .filter((field: DataProperty) => field.tableField)
         .map((field: DataProperty) => field.field);
