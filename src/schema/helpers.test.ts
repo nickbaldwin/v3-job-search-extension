@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest';
 import { sampleImpressionUrl } from './impressionUrl.ts';
-import {  getDataFromUrl } from './helpers.ts';
+import { getDataFromUrl, formatLocation, formatNowId, formatMescos, formatDate, formatProviderJobId } from './helpers.ts';
+
 
 
 test('can decode valid impression url', () => {
@@ -69,4 +70,124 @@ test('empty string returns error property', () => {
 test('invalid string returns error property', () => {
     const data = getDataFromUrl('3w')
     expect(data).toMatchObject({error: 'unknown'});
+});
+
+
+
+test('single location', () => {
+    const location = [
+        {
+            postalAddress: {
+                "@type": "Place",
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Boston",
+                    addressRegion: "MA",
+                    postalCode: "02109",
+                    addressCountry: "US"
+                },
+                geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: "42.363217",
+                    longitude: "-71.054494"
+                }
+            }
+        }
+    ];
+
+    expect(formatLocation(location)).toBe('Boston, MA, 02109, US.');
+});
+
+
+test('single location', () => {
+    const location = [
+        {
+            postalAddress: {
+                "@type": "Place",
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Boston",
+                    addressRegion: "MA",
+                    postalCode: "02109",
+                    addressCountry: "US"
+                },
+                geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: "42.363217",
+                    longitude: "-71.054494"
+                }
+            }
+        },
+        {
+            postalAddress: {
+                "@type": "Place",
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Not Boston",
+                    addressRegion: "MA",
+                    postalCode: "02109",
+                    addressCountry: "US"
+                },
+                geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: "42.363217",
+                    longitude: "-71.054494"
+                }
+            }
+        }
+    ];
+
+    expect(formatLocation(location)).toBe('Boston, MA, 02109, US.\nNot Boston, MA, 02109, US.');
+});
+
+test('now id', () => {
+    const data = formatNowId([
+        {
+            identifierName: 'SOMETHING',
+            identifierValue: '999'
+        },
+        {
+            identifierName: 'POSITION_AD_ID',
+            identifierValue: '1234'
+        }
+    ])
+    expect(data).toBe('1234');
+});
+
+test('mescos', () => {
+    const data = formatMescos([
+        {
+            id: '1234',
+        },
+        {
+            id: '5678',
+        }
+    ])
+    expect(data).toBe('1234, 5678');
+});
+
+test('no valid mescos', () => {
+    const data = formatMescos([
+        {
+            // @ts-expect-error incorrect property
+            blah: '5678',
+        }
+    ])
+    expect(data).toBe('');
+});
+
+
+const validDate = "2026-01-18T00:48:52.165Z";
+const invalidDate = "blah";
+
+test('date - valid string', () => {
+    expect(formatDate(validDate)).toBe('18 01 2026');
+});
+
+test('date - invalid string', () => {
+    expect(formatDate(invalidDate)).toBe('');
+});
+
+test('providerJobId', () => {
+    expect(formatProviderJobId([])).toBe('');
 });

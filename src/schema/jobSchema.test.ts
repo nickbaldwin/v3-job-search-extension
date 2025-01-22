@@ -49,20 +49,20 @@ test('all properties parsed successfully', () => {
     expect(j.success).toBe(true);
     expect(j.data).toMatchObject({
         title: 'Software Engineer',
-        // description: '',
-        location:  'Boston MA',
+        description: expect.stringContaining('Kforce'),
+        location:  'Boston, MA, 02109, US.',
         remote: 'ONSITE',
         company: 'Kforce Inc.',
-        nowId: '',
+        nowId: '8d1dfd5d-6103-4ea8-9537-ded83f82c849',
         jobId: '2f12116d-328f-4d06-811a-adfc6fafede4',
         template: '',
         xCode: '',
         applyType: 'OFFSITE',
-        formattedDate: '2025-01-17T00:00:00',
-        mesco: 'y',
+        formattedDate: '17 01 2025',
+        mesco: '1500127001001',
         provider: 'kforce',
         providerCode: 'kforceftpin',
-        providerJobId: 'kforce',
+        providerJobId: '',
         dateRecency: '1 day ago',
         ingestionMethod: 'ADAPTED_NOW',
         pricingType: '2',
@@ -73,8 +73,12 @@ test('all properties parsed successfully', () => {
         url: 'https://www.monster.com/job-openings/software-engineer-boston-ma--2f12116d-328f-4d06-811a-adfc6fafede4?mstr_dist=true',
         jobType: 'PPC',
 
-        // data: { x: 'x',},
-        // kevelData: { x: 'x',},
+        data: expect.objectContaining({
+            bespokeJob: false
+        }),
+        kevelData: expect.objectContaining({
+            decisionId: '14ea9fd1effb4163b370aad55b9c2da8'
+        }),
 
         decisionId: '14ea9fd1effb4163b370aad55b9c2da8',
         adProvider: 'LEXEME',

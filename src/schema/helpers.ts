@@ -1,73 +1,6 @@
-export const getImpressionData = (impressionUrl: string) => {
-    return impressionUrl;
-};
-
-export const formatLocationType = (obj: object ) => {
-    // @ts-ignore
-    return obj?.name || "";
-}
-
-export const normalizePostLocation = (locations: object[]): string => {
-    // @ts-ignore
-    if (!locations || locations.length === 0 ) {
-        return '';
-    }
-
-    let loc = '';
-    // @ts-ignore
-    locations.forEach((a: object) => {
-        // @ts-ignore
-        let add = a?.address;
-        if (add) {
-            // @ts-ignore
-            // loc += add.addressLocality + ", " + add.addressRegion + ", " + add.postalCode + ", " + add.addressCountry + ". ";
-
-            let thisLoc = [add.addressLocality, add.addressRegion, add.postalCode,add.addressCountry].filter(Boolean).join(", ");
-            if (thisLoc) {
-                thisLoc.concat('.');
-                loc += thisLoc + '. ';
-            }
-        }
-
-    });
-
-    return loc;
-}
-
-
-export const formatDate = (date: string): string => {
-    if (!date || date === '') {
-        return '';
-    }
-    // let d = dayjs(date).format('D MMM YY');
-    return date;
-};
-
-
-
-export const nowAdIds = (object: object[]): string => {
-
-    if (!object || object.length === 0) {
-        return "";
-    }
-    return object
-        // @ts-ignore
-        .filter( (identity: object) => identity?.identifierName === 'POSITION_AD_ID')
-        // @ts-ignore
-        .map((identity: object) =>  identity.identifierValue)
-        // @ts-ignore
-        .join(", ") || "";
-}
-
-
-
-
-// base64 character set, plus padding character (=)
 const b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     // Regular expression to check formal correctness of base64 encoded strings
-
     b64re = /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
-
 
 const atobPollyfill = function(string: string) {
     // atob can work with strings with whitespaces, even inside the encoded part,
@@ -76,7 +9,6 @@ const atobPollyfill = function(string: string) {
 
     if (!b64re.test(string))
         throw new TypeError("Failed to execute 'atob' on 'Window': The string to be decoded is not correctly encoded.");
-
 
     // Adding the padding if missing, for semplicity
     string += "==".slice(2 - (string.length & 3));
@@ -139,31 +71,105 @@ export const getDataFromUrl = (url: string): KevelData => {
     else return { error: 'unknown' };
 }
 
+type PostalAddress = {
+    postalAddress?: {
+        "@context"?: string,
+        "@type"?: string,
+        address?: {
+            "@type"?: string,
+            addressLocality?: string,
+            addressRegion?: string,
+            addressCountry?: string,
+            postalCode?: string
+        },
+        geo?: {
+            "@type": string,
+            latitude?: string,
+            longitude?: string,
+        }
+    },
+    locationId?: string,
+    countryCode?: string
+};
 
-export const getKevelData = (impressionUrl: string) => {
-
-    const kevelData = getDataFromUrl(impressionUrl);
-    if (kevelData.error) {
-        return {};
+// todo - geocode too?
+export const formatLocation = (locations: PostalAddress[]): string => {
+    if (!locations || locations.length === 0 ) {
+        return '';
     }
-    return kevelData;
+    let loc = '';
+    locations.forEach((address: PostalAddress) => {
+        const add = address?.postalAddress?.address;
+        if (add) {
+            const thisLoc = [add.addressLocality, add.addressRegion, add.postalCode,add.addressCountry].filter(Boolean).join(", ");
+            if (thisLoc) {
+                if (loc) {
+                    loc += '\n';
+                }
+                loc += thisLoc + '.';
+            }
+        }
+    });
+    return loc;
+}
+
+
+// todo
+export const formatDate = (date: string) => {
+
+    if (!date || date === '') {
+        return '';
+    }
+    const d = date.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (!d || !d[0]) {
+        return '';
+    }
+    return d[3] + ' ' + d[2] + ' ' + d[1];
+};
+
+
+type Identifier = {
+    identifierName?: string,
+    identifierValue?: string
+};
+
+export const formatNowId = (identifiers: Identifier[] | undefined): string => {
+
+    if (!identifiers || identifiers.length === 0) {
+        return "";
+    }
+    return identifiers
+        .filter( (identity: Identifier) => identity?.identifierName === 'POSITION_AD_ID' || identity?.identifierName === 'NOW_POSTING_ID')
+        .map((identity: Identifier) =>  identity?.identifierValue)
+        .join(", ") || "";
+}
+
+
+export const formatProviderJobId = (identifiers: Identifier[] | undefined): string => {
+
+    if (!identifiers || identifiers.length === 0) {
+        return "";
+    }
+    return identifiers
+        .filter( (identity: Identifier) => identity?.identifierName === 'PROVIDER_JOB_ID')
+        .map((identity: Identifier) =>  identity?.identifierValue)
+        .join(", ") || "";
 }
 
 
 
-export const getProviderJobId =  (arr: object[])  =>  {
-    if (!arr || arr.length === 0) {
-        return '';
-    }
-    let temp = arr.filter((el) => {
-        // @ts-ignore
-        return el.identifierName === 'PROVIDER_JOB_ID';
-    });
-    if (!temp || temp.length === 0) {
+
+// todo
+export const formatMescos = (ids: {id: string}[] | undefined): string => {
+
+    if (!ids || ids.length === 0) {
         return "";
     }
-    return temp.map((el) => {
-        // @ts-ignore
-        return el.identifierValue + " ";
-    }) || "";
-};
+    return ids
+        .map((item: {id: string}): string =>  item.id || "")
+        .join(", ") || "";
+}
+
+
+// todo
+// providerJobId: item.provider?.name || 'y',

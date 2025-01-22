@@ -1,6 +1,10 @@
 import { parseJob } from './jobSchema.ts';
 
-// todo - use zod to infer type
+
+
+
+
+// todo - move interface or dynamically construct it
 export interface DisplayJob {
 
     title: string;
@@ -47,6 +51,8 @@ export interface DisplayJob {
     campaignId: string;
 }
 
+
+// todo - remove or move into test data
 export const blankJob: DisplayJob = {
     adProvider: '',
     adRank: '',
@@ -94,58 +100,16 @@ export const blankJob: DisplayJob = {
 // @ts-expect-error todo
 export const transformJob = (job: object, position: number): DisplayJob => {
     const parsed = parseJob(job);
-
     console.log('parsed', parsed);
-    if (parsed.success) {
-
+    if (parsed.success  && parsed.data) {
         // todo - deal with position etc
-        // todo - deal with kevel data etc
-        return {
-            adProvider: '',
-            adRank: '',
-            applyType: '',
-            campaignId: '',
-            data: null,
-            dateRecency: '',
-            decisionId: '',
-            ecpm: '0',
-            formattedDate: '',
-            ingestionMethod: '',
-            kevelData: null,
-            mesco: '',
-            nowId: '',
-            position: '' + position,
-            price: '0',
-            pricingType: '',
-            provider: '',
-            providerCode: '',
-            providerJobId: '',
-            refCode: '',
-            relevanceScore: '0',
-            remainder: '',
-            remote: '',
-            searchEngine: '',
-            selected: false,
-            seoJobId: '',
-            template: '',
-            url: '',
-            validThrough: '',
-            validThroughGoogle: '',
-            xCode: '',
-            title: '',
-            description: '',
-            company: '',
-            location: '',
-            // datePosted: datePosted,
-            jobId: '',
-        };
+        return parsed.data;
     } else if (!parsed.success) {
         // todo deal with error
         /*
         parsed.error.issues.forEach((issue) => {
             console.log('\n\n\n', issue, '\n\n\n');
         });
-
          */
         return blankJob;
     }

@@ -1,6 +1,14 @@
 import { z } from 'zod';
 import { DisplayJob } from './transform.ts';
-import { getDataFromUrl, KevelData } from './helpers.ts';
+import {
+    formatDate,
+    formatLocation,
+    formatMescos,
+    formatNowId,
+    formatProviderJobId,
+    getDataFromUrl,
+    KevelData,
+} from './helpers.ts';
 
 const Job = z.object({
     jobId: z.string(),
@@ -121,7 +129,7 @@ const Job = z.object({
                     })
                 )
             ),
-            templateId: z.optional(z.string()),
+            templateId: z.optional(z.number()),
         })
     ),
     policyDecisions: z.object({
@@ -154,6 +162,7 @@ const Job = z.object({
                                 addressLocality: z.optional(z.string()),
                                 addressRegion: z.optional(z.string()),
                                 addressCountry: z.optional(z.string()),
+                                postalCode: z.optional(z.string())
                             })
                         ),
                         geo: z.optional(
@@ -295,26 +304,19 @@ const Job = z.object({
         return {
             title: item.normalizedJobPosting.title || item.jobPosting.title || '',
             description: item.normalizedJobPosting.description || item.jobPosting.description || '',
-            // todo - use function to concat location info and multi-line multiple locations
-            location: (
-                item.enrichments.normalizedJobLocations[0].postalAddress?.address?.addressLocality +
-                ' ' + item.enrichments.normalizedJobLocations[0].postalAddress?.address?.addressRegion) || '',
+            location: formatLocation(item.enrichments.normalizedJobLocations),
             remote: item.policyDecisions.jobLocationTypeDecision.result || item.normalizedJobPosting.jobLocationType ||'',
             company: item.normalizedJobPosting.hiringOrganization.name || item.jobPosting.hiringOrganization.name || '',
-            nowId: item.externalIdentifiers?.find((i) => i.identifierName === 'nowId')?.identifierValue || '',
+            nowId: formatNowId(item.externalIdentifiers),
             jobId: item.jobId || '',
-            template: item.now?.templateId || '',
+            template: '' + item.now?.templateId || '',
             xCode: item.enrichments.companyKb?.code || '',
             applyType: item.apply.applyType || '',
-            // todo - format
-            formattedDate: item.formattedDate || '',
-            // todo - concat
-            mesco: 'y',
-            // mesco: 'y' + item.enrichments.mescos?.concat() || '',
+            formattedDate: formatDate(item.formattedDate),
+            mesco: formatMescos(item.enrichments?.mescos),
             provider: item.provider?.name || '',
             providerCode: item.provider?.code || '',
-            // todo - helper function
-            providerJobId: item.provider?.name || 'y',
+            providerJobId: formatProviderJobId(item.externalIdentifiers),
             dateRecency: item.dateRecency || '',
             ingestionMethod: item.ingestionMethod || '',
             pricingType: '' + item.now?.jobAdPricingTypeId || '',
@@ -329,8 +331,8 @@ const Job = z.object({
             searchEngine: item.searchEngine ||'',
 
             data: { ...item },
-
             kevelData,
+
             decisionId: kevelData?.decisionId || '',
             adRank: kevelData?.adRank || '',
             auctionBids: kevelData?.auctionBids || '',
@@ -351,7 +353,7 @@ export const parseJob = (job: object): ParsedJob => {
 };
 
 // extract the inferred type
-// todo - does this include the transform?
+// todo - does this include the transform? can be used for DisplayJob then
 export type Job = z.infer<typeof Job>;
 // { jobId: string }
 
