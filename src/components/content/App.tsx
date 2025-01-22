@@ -4,11 +4,7 @@ import { Results } from './Results';
 const App = (): JSX.Element => {
     return (
         <>
-            <div className="card">
-                <p>
-                    Monster Job Search Extension
-                </p>
-            </div>
+            <h5>Search results</h5>
             <Results />
         </>
     );

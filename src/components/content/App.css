@@ -13,3 +13,8 @@
 .card {
     padding: 2em;
 }
+
+table, th, td {
+    border: solid 1px grey;
+    border-spacing: 0;
+}

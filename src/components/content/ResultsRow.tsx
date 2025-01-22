@@ -7,11 +7,14 @@ export const ResultRow = ({
 }: {
     result: DisplayJob;
     propertiesToDisplay: string[];
-}) => (
-    <tr key={result.jobId}>
-        {propertiesToDisplay.map((p) => (
-            // @ts-expect-error efef
-            <td> {result[p]} </td>
-        ))}
-    </tr>
-);
+}) => {
+    // @ts-expect-error todo
+    const fields = propertiesToDisplay.map((p) => (result[p]));
+    return (
+        <tr key={result.jobId}>
+            {fields.map((field) => (
+                <td> {field} </td>
+            ))}
+        </tr>
+    );
+};

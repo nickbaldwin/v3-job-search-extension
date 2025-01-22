@@ -35,11 +35,12 @@ const p = [
     'decisionId',
     'url',
     'selected',
-    'data',
-    'kevelData',
+    //'data',
+    //'kevelData',
 ];
 
 export const ResultsTable = ({ results }: { results: DisplayJob[] }) => {
+    // todo - replace with selected fields only
     // const propertiesToDisplay = Object.keys(blankJob);
     const propertiesToDisplay = p;
 
