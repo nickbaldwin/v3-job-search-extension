@@ -1,9 +1,8 @@
 import { parseJob } from './jobSchema.ts';
 
-
 // todo - move interface or dynamically construct it
 export interface DisplayJob {
-
+    // all these properties from the job data
     title: string;
     description: string;
     location: string;
@@ -28,24 +27,22 @@ export interface DisplayJob {
     validThroughGoogle: string;
     url: string;
     jobType: string;
-
-    data: object | null;
-    kevelData: object | null;
-
-    decisionId: string;
     adProvider: string;
     searchEngine: string;
 
-    position: string;
-    selected: boolean;
+    data: object | null; // holds the source data
+    kevelData: object | null; // holds the unencoded data from impression url from kevel via jobAd property
+    decisionId: string; // from kevel data
+    adRank: string; // from kevel data
+    remainder: string; // from kevel data
+    auctionBids: string; // from kevel data
+    relevanceScore: string; // from kevel data
+    ecpm: string; // from kevel data
+    price: string; // from kevel data
+    campaignId: string; // from kevel data
 
-    adRank: string;
-    remainder: string;
-    auctionBids: string;
-    relevanceScore: string;
-    ecpm: string;
-    price: string;
-    campaignId: string;
+    position: string; // derived directly from order in results
+    selected: boolean; // updated by ui
 }
 
 
