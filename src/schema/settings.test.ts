@@ -2,9 +2,6 @@ import { expect, test } from 'vitest';
 import { getNamesOfAllProperties, getNamesOfFields } from './settings.ts';
 
 
-// sanity checks
-
-
 test('getNamesOfFields - all fields that can be displayed in table', () => {
     const fields = getNamesOfFields();
     expect(fields).toEqual(
@@ -42,12 +39,11 @@ test('getNamesOfFields - all fields that can be displayed in table', () => {
             'remote',
             'url',
 
-
+            // 'selected',
             // 'data',
             // 'kevelData',
-            // 'auctionBids',
             // 'decisionId',
-
+            // 'auctionBids'
         ])
     );
 });
@@ -96,12 +92,9 @@ test('getNamesOfAllProperties all properties passed into ui', () => {
             'kevelData',
             'decisionId',
             'auctionBids',
-
         ])
     );
 });
-
-getNamesOfAllProperties
 
 
 

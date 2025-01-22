@@ -1,6 +1,5 @@
 import { formatDate } from './helpers.ts';
 
-
 export const currentVersion = {
     version: '4.0.0'
 };
@@ -8,6 +7,7 @@ export const currentVersion = {
 // note: this interface came from an earlier version of the extension
 // some of the properties were required for the table component to work
 // others were required for transforming the data - but this is now handled by zod
+// can be streamlined
 export interface DataProperty {
     field: string // identifier used in code
     title: string, // name displayed in UI
@@ -58,7 +58,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: true,
         reorderable: false,
         orderIndex: 0,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -94,7 +94,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: true,
         reorderable: false,
         orderIndex: 0,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -112,7 +112,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: true,
         reorderable: true,
         orderIndex: 0,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true, // temp
@@ -130,7 +130,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: true,
         reorderable: true,
         orderIndex: 0,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -148,7 +148,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: true,
         reorderable: false,
         orderIndex: 0,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -171,7 +171,7 @@ export const Settings: Record<string, DataProperty> = {
         additionalProperty: false,
         tableField: true,
         setting: true,
-        disabled: true,
+        disabled: false,
         sourceProperty: 'jobAd',
         transformProperty: (object: { provider?: string }) => {
             return object?.provider || '';
@@ -191,7 +191,7 @@ export const Settings: Record<string, DataProperty> = {
         additionalProperty: false,
         tableField: true,
         setting: true,
-        disabled: true,
+        disabled: false,
         sourceProperty: 'searchEngine',
         transformProperty: null,
         augmentedProperty: null,
@@ -209,7 +209,7 @@ export const Settings: Record<string, DataProperty> = {
         additionalProperty: false,
         tableField: true,
         setting: true,
-        disabled: true,
+        disabled: false,
         sourceProperty: 'jobPosting',
         transformProperty: (object: {
             hiringOrganization?: { name: string };
@@ -326,7 +326,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: false,
         reorderable: true,
         // orderIndex: 1,
-        visible: true,
+        visible: false,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -364,7 +364,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: false,
         reorderable: true,
         // orderIndex: 1,
-        visible: true,
+        visible: false,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -384,7 +384,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: false,
         reorderable: true,
         //orderIndex: 1,
-        visible: true,
+        visible: false,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -404,7 +404,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: false,
         reorderable: true,
         // orderIndex: 1,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -508,7 +508,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: false,
         reorderable: true,
         //orderIndex: 1,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -623,7 +623,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: false,
         reorderable: true,
         //orderIndex: 1,
-        visible: false,
+        visible: true,
         jobProperty: true,
         additionalProperty: false,
         tableField: true,
@@ -663,7 +663,7 @@ export const Settings: Record<string, DataProperty> = {
         locked: true,
         reorderable: false,
         //orderIndex: 0,
-        visible: true,
+        visible: false,
         jobProperty: false,
         additionalProperty: true,
         tableField: false,
@@ -747,15 +747,6 @@ export const Settings: Record<string, DataProperty> = {
     },
 };
 
-
-// todo - which ones are needed?
-// return all properties that are derived from job item (incl from impression url)
-export const getNamesOfJobProperties = () => {
-    return Object.values(Settings)
-        .filter((field: DataProperty) => field.jobProperty)
-        .map((field: DataProperty) => field.field);
-};
-
 // returns all fields that can be displayed in the table
 export const getNamesOfFields: () => string[] = () => {
     return Object.values(Settings)
@@ -763,8 +754,22 @@ export const getNamesOfFields: () => string[] = () => {
         .map((field: DataProperty) => field.field);
 };
 
+// all fields that are used in the ui (including expanded details, export etc)
 export const getNamesOfAllProperties = () => {
     return Object.keys(Settings);
+};
+
+
+
+
+
+
+// todo - are these needed?
+// return all properties that are derived from job item (incl from impression url)
+export const getNamesOfJobProperties = () => {
+    return Object.values(Settings)
+        .filter((field: DataProperty) => field.jobProperty)
+        .map((field: DataProperty) => field.field);
 };
 
 // should be same now as getNamesOfJobFields, but could change in future?
@@ -773,9 +778,6 @@ export const getNamesOfDataSettings = () => {
         .filter((field: DataProperty) => field.setting)
         .map((field: DataProperty) => field.field);
 };
-
-
-
 
 export const getAllProperties = () => {
     let o = {};
