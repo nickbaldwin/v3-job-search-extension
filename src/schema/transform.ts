@@ -1,9 +1,6 @@
 import { parseJob } from './jobSchema.ts';
 
 
-
-
-
 // todo - move interface or dynamically construct it
 export interface DisplayJob {
 
@@ -102,8 +99,10 @@ export const transformJob = (job: object, position: number): DisplayJob => {
     const parsed = parseJob(job);
     console.log('parsed', parsed);
     if (parsed.success  && parsed.data) {
-        // todo - deal with position etc
-        return parsed.data;
+        return {
+            ... parsed.data,
+            position: '' + position,
+        };
     } else if (!parsed.success) {
         // todo deal with error
         /*

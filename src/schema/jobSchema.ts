@@ -309,7 +309,7 @@ const Job = z.object({
             company: item.normalizedJobPosting.hiringOrganization.name || item.jobPosting.hiringOrganization.name || '',
             nowId: formatNowId(item.externalIdentifiers),
             jobId: item.jobId || '',
-            template: '' + item.now?.templateId || '',
+            template: item.now?.templateId ? '' + item.now?.templateId : '',
             xCode: item.enrichments.companyKb?.code || '',
             applyType: item.apply.applyType || '',
             formattedDate: formatDate(item.formattedDate),
