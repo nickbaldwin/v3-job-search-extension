@@ -102,27 +102,22 @@
 
                 "*://*.monster.be/*",
                 "*://*.monster.ca/*",
-
                 "*://*.monster.de/*",
                 "*://*.monster.fr/*",
                 "*://*.monster.ie/*",
                 "*://*.monster.it/*",
                 "*://*.monster.lu/*",
-
                 "*://*.monsterboard.nl/*",
                 "*://*.monster.es/*",
                 "*://*.monster.se/*",
                 "*://*.monster.ch/*",
-
                 "*://*.monster.co.uk/*",
                 "*://*.monster.com/*",
 
                 "*://*.nxtpreprod.monster.at/*",
                 "*://*.nxtpreprod.monster.be/*",
-
                 "*://*.nxtpreprod.monster.ca/*",
                 "*://*.nxtpreprod.monster.ch/*",
-
                 "*://*.nxtpreprod.monster.com/*",
                 "*://*.nxtpreprod.monster.co.uk/*",
                 "*://*.nxtpreprod.monster.de/*",
@@ -131,16 +126,13 @@
                 "*://*.nxtpreprod.monster.ie/*",
                 "*://*.nxtpreprod.monster.it/*",
                 "*://*.nxtpreprod.monster.lu/*",
-
                 "*://*.nxtpreprod.monsterboard.nl/*",
                 "*://*.nxtpreprod.monster.se/*",
 
                 "*://*.nxtdev.monster.at/*",
                 "*://*.nxtdev.monster.be/*",
                 "*://*.nxtdev.monster.ca/*",
-
                 "*://*.nxtdev.monster.ch/*",
-
                 "*://*.nxtdev.monster.com/*",
                 "*://*.nxtdev.monster.co.uk/*",
                 "*://*.nxtdev.monster.de/*",
@@ -149,7 +141,6 @@
                 "*://*.nxtdev.monster.ie/*",
                 "*://*.nxtdev.monster.it/*",
                 "*://*.nxtdev.monster.lu/*",
-
                 "*://*.nxtdev.monsterboard.nl/*",
                 "*://*.nxtdev.monster.se/*"
             ]
