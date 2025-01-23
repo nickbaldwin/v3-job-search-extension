@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import App from '../components/content/App.tsx';
 import { log } from '../utils/logger.ts';
 
-import { ListenerFunction } from '../components/content/resultsListenerFunction.ts';
+import { ListenerFunction } from '../components/content/scripts/resultsListenerFunction.ts';
 ListenerFunction();
 
 const moduleName = 'content script';
 log({ logType: 'info', moduleName, message: 'loaded' });
-
+log({ logType: 'info', moduleName, message: 'loaded' });
 // inject script (as a script tag) directly into the host web page
 // - within 'main' world context
 // @ts-expect-error compiler cannot interpret the module

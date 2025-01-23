@@ -1,13 +1,11 @@
+import { RouterProvider } from '@tanstack/react-router'
+
+import { router } from './router.ts';
 import './App.css';
-import { Results } from './Results';
 
 const App = (): JSX.Element => {
     return (
-        <>
-            <h5>Search results</h5>
-            <Results />
-        </>
+        <RouterProvider router={router} />
     );
 };
-
 export default App;

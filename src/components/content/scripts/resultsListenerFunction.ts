@@ -1,10 +1,10 @@
-import useStore from '../../store/store.ts';
+import useStore from '../../../store/store.ts';
 import {
     MessageType,
     subscribeToWindowMessages,
-} from '../../utils/messaging.ts';
+} from '../../../utils/messaging.ts';
 
-import { log } from '../../utils/logger.ts';
+import { log } from '../../../utils/logger.ts';
 const moduleName = 'resultsListener';
 
 const updateResults = useStore.getState().updateResults;
