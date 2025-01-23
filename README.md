@@ -14,7 +14,7 @@ See the [installation and usage doc](https://monster-next.atlassian.net/wiki/spa
 
 ## For developers
 
-To build/rebuild the extension (using node 16):
+To build/rebuild the extension (using node/npm):
 
 ```
 $ npm run build
@@ -22,6 +22,13 @@ $ npm run build
 
 After the project is built, a directory named `dist` will be created.
 
+To speed up development (rather than rebuilding after each change), the dev server will dynamically update (HMR) the extension in the browser (except for changes to config files including the manifest)
+
+```
+$ npm run dev
+```
+
+Note: HMR is provided by the crx.js plugin for vite. You may encounter issues (particularly for the background/popup scripts) as this is no longer being updated.
 
 ### To install the extension:
 
@@ -57,6 +64,8 @@ In addition, there are numerous assets and build/configuration files that are us
 ### How is it developed?
 
 This extension is developed in React and TypeScript.
+
+TanStack Router is used for routing within the extension.
 
 Vite is the build tool and the CRXjs Vite plugin simplifies the development/build process for extensions (particularly HMR or Hot Module Replacement).
 
