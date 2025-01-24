@@ -4,6 +4,8 @@ import {
     subscribeToExtensionMessages,
 } from '../../../utils/messaging.ts';
 
+import { defaultUserSetting } from '../../../schema/settings.ts';
+
 import { log } from '../../../utils/logger.ts';
 const moduleName = 'settingsListener';
 
@@ -23,7 +25,11 @@ export const settingsListenerFunction = () => {
 
             console.log('update settings here');
             // todo
-            updateSettings('updated settings');
+
+
+
+
+            updateSettings(defaultUserSetting());
             console.log(window.location.href);
         } else {
             // nothing!

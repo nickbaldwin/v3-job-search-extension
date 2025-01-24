@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import zustymiddlewarets from 'zustymiddlewarets';
 
 import { DisplayJob, transformJobs } from '../schema/transform';
+import { DataProperty} from '../schema/settings.ts';
 
 interface ResultsData {
     timestamp: string;
@@ -19,8 +20,8 @@ interface State {
     resultsHistory: ResultsData[];
     updateResults: (add: ResultsData) => void;
 
-    settings: string;
-    updateSettings: (add: string) => void;
+    settings: Record<string, DataProperty>;
+    updateSettings: (add: Record<string, DataProperty>) => void;
 
     url: string;
     urlHistory: string[];
@@ -38,7 +39,7 @@ const useStore = create<State>()(
         resultsLast: null,
         resultsHistory: [],
 
-        settings: '',
+        settings: {  },
 
         url: '',
         urlHistory: [],
@@ -70,8 +71,8 @@ const useStore = create<State>()(
             }));
         },
 
-        updateSettings: (payload: string) => {
-            set((state: { settings: string }) => ({ settings: payload }))
+        updateSettings: (payload: Record<string, DataProperty>) => {
+            set((state: { settings: Record<string, DataProperty> }) => ({ settings: payload }))
         }
     }))
 );

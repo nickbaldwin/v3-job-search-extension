@@ -754,6 +754,16 @@ export const getNamesOfFields: () => string[] = () => {
         .map((field: DataProperty) => field.field);
 };
 
+export const defaultUserSetting   = (): Record<string, DataProperty> => {
+    const settings : Record<string, DataProperty> = {};
+    for (const key in Settings) {
+        if (Settings[key].tableField) {
+            settings[key] = Settings[key];
+        }
+    }
+    return settings;
+}
+
 // all fields that are used in the ui (including expanded details, export etc)
 export const getNamesOfAllProperties = () => {
     return Object.keys(Settings);
