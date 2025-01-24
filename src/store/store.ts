@@ -71,9 +71,13 @@ const useStore = create<State>()(
             }));
         },
 
+
         updateSettings: (payload: Record<string, DataProperty>) => {
-            set((state: { settings: Record<string, DataProperty> }) => ({ settings: payload }))
+           set(() => ({ settings: payload }))
+
         }
+
+
     }))
 );
 
