@@ -1,11 +1,15 @@
 import useStore from '../../../store/store.ts';
-
+import { SettingItem } from './toggle.tsx';
 import { getNamesOfFields } from '../../../schema/settings.ts';
 
 export const Settings = () => {
     const bears = useStore((state) => state.bears);
     const settings = useStore((state) => state.settings);
     const inc = useStore((state) => state.increase);
+
+    if (Object.keys(settings).length === 0) {
+        return <p>loading...</p>;
+    }
 
     return (
         <>
@@ -14,7 +18,8 @@ export const Settings = () => {
             < br />< br />
             {getNamesOfFields().map((s) => (
                 <>
-                    <p>{settings[s].title}: {settings[s].visible ? 'visible' : 'hidden'}</p>
+                    <SettingItem title={settings[s].title} visible={settings[s].visible} disabled={settings[s].disabled}/>
+                    <br />
                 </>
             ))}
         </>
