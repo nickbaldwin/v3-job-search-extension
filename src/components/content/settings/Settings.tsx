@@ -1,5 +1,5 @@
 import useStore from '../../../store/store.ts';
-import { SettingItem } from './toggle.tsx';
+import { SettingItem } from './SettingItem.tsx';
 import { getNamesOfFields } from '../../../schema/settings.ts';
 
 export const Settings = () => {

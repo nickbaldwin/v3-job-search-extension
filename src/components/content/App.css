@@ -8,7 +8,7 @@ span.bg-white.duration-200.ease-in-out.group-data-checked\:translate-x-5.inline-
     position: fixed;
     top: 140px;
     right: 20px;
-    width: 300px;
+    width: 600px;
     height: 600px;
     z-index: 101; /* so it's above the page header */
     background-color: #ccc;
