@@ -19,6 +19,8 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.0",
     "@tanstack/react-router": "^1.97.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
