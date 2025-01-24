@@ -1,3 +1,9 @@
+@import "tailwindcss";
+
+span.bg-white.duration-200.ease-in-out.group-data-checked\:translate-x-5.inline-block.pointer-events-none.ring-0.rounded-full.shadow-sm.size-5.transform.transition {
+    background-color: white;
+}
+
 #content-root {
     position: fixed;
     top: 140px;
