@@ -7,7 +7,7 @@ import {
 import { log } from '../../../utils/logger.ts';
 const moduleName = 'settingsListener';
 
-// const updateSettings = useStore.getState().updateSettings;
+const updateSettings = useStore.getState().updateSettings;
 export const settingsListenerFunction = () => {
     log({ logType: 'info', moduleName, message: 'loaded' });
     const messageHandler = (messageType: MessageType) => {
@@ -20,9 +20,10 @@ export const settingsListenerFunction = () => {
                 payload: { payload: messageType.payload},
             });
 
-            // @ts-expect-error todo typing
+
             console.log('update settings here');
-            // updateSettings(messageType.payload);
+            // todo
+            updateSettings('updated settings');
             console.log(window.location.href);
         } else {
             // nothing!

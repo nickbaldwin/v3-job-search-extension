@@ -19,6 +19,9 @@ interface State {
     resultsHistory: ResultsData[];
     updateResults: (add: ResultsData) => void;
 
+    settings: string;
+    updateSettings: (add: string) => void;
+
     url: string;
     urlHistory: string[];
     updateUrl: (to: string) => void;
@@ -34,6 +37,8 @@ const useStore = create<State>()(
         resultsSize: 0,
         resultsLast: null,
         resultsHistory: [],
+
+        settings: '',
 
         url: '',
         urlHistory: [],
@@ -64,6 +69,10 @@ const useStore = create<State>()(
                     resultsLast: results,
             }));
         },
+
+        updateSettings: (payload: string) => {
+            set((state: { settings: string }) => ({ settings: payload }))
+        }
     }))
 );
 
