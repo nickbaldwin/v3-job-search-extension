@@ -1,11 +1,12 @@
-import { DataProperty, defaultUserSetting} from '../schema/settings.ts';
-// todo - use logger
+import { defaultUserSetting} from '../schema/settings.ts';
+// todo - use logger, DataProperty, zod
 const settingsKey = 'job-search-plugin-field-settings-old';
 
 export const getSettingsFromExtensionStorage = async (): Promise<object> => {
     return new Promise((resolve, reject) => {
         try {
-            chrome.storage.local.get([settingsKey], function(value: Store ) {
+            chrome.storage.local.get([settingsKey], function(value: object ) {
+                // @ts-expect-error todo
                 if (!value || value[settingsKey] === undefined) {
                     // todo - save default settings
                     console.log(`no store with key ${settingsKey} in extension storage`, value)
@@ -17,6 +18,7 @@ export const getSettingsFromExtensionStorage = async (): Promise<object> => {
                     resolve(settings);
                     // reject();
                 } else {
+                    // @ts-expect-error todo
                     resolve(value[settingsKey]);
                 }
             });
@@ -55,6 +57,8 @@ export const removeObjectFromLocalStorage = async () => {
 
 
 // todo - review
+
+/*
 export const getSavedSettings = () => {
 
     console.log('current plugin version is: ', currentVersion.version);
@@ -116,15 +120,15 @@ export const saveSettings = (store: object) => {
 
 
 
+
+
 // todo - WIP
 
 interface Store {
     [key: string]: UserSettings;
 }
 
-
+ */
 
 
 // todo - use settings type
-
-
