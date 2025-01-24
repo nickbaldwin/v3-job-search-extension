@@ -14,7 +14,8 @@
         "identity",
         "identity.email",
         "clipboardWrite",
-        "storage"
+        "storage",
+        "tabs"
     ],
     "action": {
         "default_popup": "src/contexts/popup.html"

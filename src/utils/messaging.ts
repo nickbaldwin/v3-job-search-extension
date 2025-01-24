@@ -44,13 +44,8 @@ export const sendMessageToContent = (message: MessageType): void => {
     // add query e.g. {url: '*://*.monster.co.uk/*'}
     // chrome.tabs.query({url: "*://*.example.com/*"}, function(tabs) {
     chrome.tabs.query(
-        {
-            url: [
-                '*://*.monster.com/*',
-                '*://*.monster.de/*',
-                // todo
-            ],
-        },
+        // sending to all tabs for simplicity
+        { },
         function (tabs) {
             tabs.forEach((tab) => {
                 if (tab.id) {

@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from '../components/content/App.tsx';
 import { log } from '../utils/logger.ts';
 
+// listen to messages from the world script and update the store
 import { ListenerFunction } from '../components/content/scripts/resultsListenerFunction.ts';
 ListenerFunction();
 
 const moduleName = 'content script';
-log({ logType: 'info', moduleName, message: 'loaded' });
 log({ logType: 'info', moduleName, message: 'loaded' });
 // inject script (as a script tag) directly into the host web page
 // - within 'main' world context
@@ -30,3 +30,7 @@ ReactDOM.createRoot(root).render(
         <App />
     </React.StrictMode>
 );
+
+// listen to messages from the background script and update the store
+import { settingsListenerFunction } from '../components/content/scripts/settingsListenerFunction.ts';
+settingsListenerFunction();
